@@ -19,11 +19,22 @@ ssh-add ~/.ssh/id_rsa
 ```bash
 sudo pacman -R yaourt
 sudo pacman -S yay
-yay -S visual-studio-code-bin
 yay -S google-chrome
+sudo pacman -S rofi
 sudo pacman -S python-pip
+yay -S visual-studio-code-bin
 sudo pacman -S otf-fira-code
+yay -S gitkraken
+vscode
 ```
+
+**Install in vscode:**
+
+- Better Comments by Aaron Bond
+- Bracket Pair Colorizer 2 by CoenraadS
+- Material Icon Theme by Philipp Kief
+- One Dark Pro by binaryify
+- Python by Microsoft
 
 ## Browser
 
@@ -33,9 +44,11 @@ vim ~/.config/mimeapps.list  # google-chrome-stable.desktop
 vim ~/.profile  # export BROWSER=/usr/bin/google-chrome-stable
 ```
 
-## dotfiles
+## dotfiles and venv
 
 ```bash
+cd ~/apps/venv
+virtualenv -p python vscode
 cd i3manjaro-dotfiles
 yes | cp -vrf dotfiles/. ~/
 nitrogen --set-scaled ~/Pictures/wallpaper/martino-pietropoli.jpg --save
@@ -48,22 +61,6 @@ sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n  
 
 sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.xinitrc
 ```
-
-## vscode
-
-```bash
-cd ~/apps/venv
-virtualenv -p python vscode
-vscode
-```
-
-**Install**
-
-- Better Comments by Aaron Bond
-- Bracket Pair Colorizer 2 by CoenraadS
-- Material Icon Theme by Philipp Kief
-- One Dark Pro by binaryify
-- Python by Microsoft
 
 ## mininet
 
