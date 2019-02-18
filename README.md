@@ -36,6 +36,7 @@ vim ~/.profile  # export BROWSER=/usr/bin/google-chrome-stable
 ## dotfiles
 
 ```bash
+cd i3manjaro-dotfiles
 yes | cp -vrf dotfiles/. ~/
 nitrogen --set-scaled ~/Pictures/wallpaper/martino-pietropoli.jpg --save
 ```
@@ -53,6 +54,7 @@ sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n  
 ```bash
 cd ~/apps/venv
 virtualenv -p python vscode
+vscode
 ```
 
 **Install**
