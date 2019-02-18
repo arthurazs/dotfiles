@@ -1,0 +1,6 @@
+#!/bin/bash
+
+conky -c ~/.config/conky/shortcuts_matrix &&
+conky -c ~/.config/conky/syclo/syclo-matrix &&
+
+exit 0
