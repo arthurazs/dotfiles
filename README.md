@@ -59,24 +59,39 @@ sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n  
 sudo reboot
 ```
 
+## OpenvSwitch
+
+```bash
+git clone https://github.com/openvswitch/ovs.git
+cd ovs
+./boot.sh
+pip install six --user
+pip install flake8 --user
+./configure
+make  # http://docs.openvswitch.org/en/latest/intro/install/general/
+sudo make install
+sed -i '$a export PATH="$PATH:/usr/local/share/openvswitch/scripts"' ~/.bashrc
+. ~/.bashrc
+mkdir -p /usr/local/etc/openvswitch
+sudo mkdir -p /usr/local/var/log/openvswitch/
+sudo mkdir -p /usr/local/var/run/openvswitch
+sudo touch /usr/local/var/log/openvswitch/ovs-vswitchd.log
+sudo ovsdb-tool create /usr/local/etc/openvswitch/conf.db vswitchd/vswitch.ovsschema
+sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --private-key=db:Open_vSwitch,SSL,private_key --certificate=db:Open_vSwitch,SSL,certificate --bootstrap-ca-cert=db:Open_vSwitch,SSL,ca_cert --pidfile --detach --log-file
+sudo ovs-vsctl --no-wait init
+```
+
 ## mininet
 
 ```bash
 git clone http://github.com/mininet/mininet
 cd mininet
 # py3 env
-python setup.py install
+sudo python setup.py install
 gcc mnexec.c
-mv a.out ~/apps/venv/python3/bin/mnexec
-```
-
-## OpenvSwitch
-
-```bash
-git clone https://github.com/openvswitch/ovs.git
-./boot.sh
-pip install six
-pip install flake8
-./configure
-make  # http://docs.openvswitch.org/en/latest/intro/install/general/
+sudo mv a.out /usr/bin/mnexec
+pacman -S net-tools
+pip install ryu --user
+# ryu-manager ryu.app.simple_switch
+# sudo mn --controller remote
 ```
