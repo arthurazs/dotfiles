@@ -25,7 +25,7 @@ sudo pacman -S python-pip
 yay -S visual-studio-code-bin
 sudo pacman -S otf-fira-code
 yay -S gitkraken
-vscode
+code
 ```
 
 **Install in vscode:**
@@ -44,7 +44,7 @@ vim ~/.config/mimeapps.list  # google-chrome-stable.desktop
 vim ~/.profile  # export BROWSER=/usr/bin/google-chrome-stable
 ```
 
-## dotfiles and venv
+## dotfiles
 
 ```bash
 cd ~/apps/venv
@@ -52,14 +52,10 @@ virtualenv -p python vscode
 cd i3manjaro-dotfiles
 yes | cp -vrf dotfiles/. ~/
 nitrogen --set-scaled ~/Pictures/wallpaper/martino-pietropoli.jpg --save
-```
-
-## Alias
-
-```bash
 sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.bashrc
 
 sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.xinitrc
+sudo reboot
 ```
 
 ## mininet
