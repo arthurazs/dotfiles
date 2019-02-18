@@ -36,6 +36,7 @@ vim ~/.profile  # export BROWSER=/usr/bin/google-chrome-stable
 
 ```bash
 cp -r dotfiles ~/
+nitrogen --set-scaled Pictures/wallpaper/martino-pietropoli.jpg --save
 ```
 
 ## Alias
