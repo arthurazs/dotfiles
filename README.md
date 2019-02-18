@@ -17,6 +17,7 @@ ssh-add ~/.ssh/id_rsa
 ## Softwares
 
 ```bash
+sudo pacman -Syu
 sudo pacman -R yaourt
 sudo pacman -S yay
 yay -S google-chrome
