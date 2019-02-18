@@ -7,7 +7,8 @@
 [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 
 ```bash
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+ssh-keygen -t rsa -b 4096 -C "arthurazsoares@gmail.com"
+eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 ```
 
@@ -16,12 +17,12 @@ ssh-add ~/.ssh/id_rsa
 ## Softwares
 
 ```bash
-pacman -R yaourt
-pacman -S yay
+sudo pacman -R yaourt
+sudo pacman -S yay
 yay -S visual-studio-code-bin
 yay -S google-chrome
-pacman -S python-pip
-pacman -S otf-fira-code
+sudo pacman -S python-pip
+sudo pacman -S otf-fira-code
 ```
 
 ## Browser
@@ -35,18 +36,16 @@ vim ~/.profile  # export BROWSER=/usr/bin/google-chrome-stable
 ## dotfiles
 
 ```bash
-cp -r dotfiles ~/
-nitrogen --set-scaled Pictures/wallpaper/martino-pietropoli.jpg --save
+yes | cp -vrf dotfiles/. ~/
+nitrogen --set-scaled ~/Pictures/wallpaper/martino-pietropoli.jpg --save
 ```
 
 ## Alias
 
 ```bash
-sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi'
- ~/.bashrc
+sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.bashrc
 
-sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi'
- ~/.xinitrc
+sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.xinitrc
 ```
 
 ## vscode
