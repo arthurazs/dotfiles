@@ -1,5 +1,7 @@
 [user]
 	name = Arthur Zopellaro
 	email = arthurazsoares@gmail.com
+[push]
+	default = simple
 [credential]
 	username = arthurazs
