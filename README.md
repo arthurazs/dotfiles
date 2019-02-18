@@ -77,8 +77,12 @@ sudo mkdir -p /usr/local/var/log/openvswitch/
 sudo mkdir -p /usr/local/var/run/openvswitch
 sudo touch /usr/local/var/log/openvswitch/ovs-vswitchd.log
 sudo ovsdb-tool create /usr/local/etc/openvswitch/conf.db vswitchd/vswitch.ovsschema
-sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --private-key=db:Open_vSwitch,SSL,private_key --certificate=db:Open_vSwitch,SSL,certificate --bootstrap-ca-cert=db:Open_vSwitch,SSL,ca_cert --pidfile --detach --log-file
+# sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --private-key=db:Open_vSwitch,SSL,private_key --certificate=db:Open_vSwitch,SSL,certificate --bootstrap-ca-cert=db:Open_vSwitch,SSL,ca_cert --pidfile --detach --log-file
+sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --pidfile --detach --log-file
+# sudo ovs-vsctl --no-wait emer-reset
+# sudo kill `cd /usr/local/var/run/openvswitch && cat ovsdb-server.pid ovs-vswitchd.pid`
 sudo ovs-vsctl --no-wait init
+ovs-vswitchd --pidfile --detach --log-file
 ```
 
 ## mininet
@@ -91,6 +95,8 @@ sudo python setup.py install
 gcc mnexec.c
 sudo mv a.out /usr/bin/mnexec
 pacman -S net-tools
+pacman -S tcpdump
+pacman -S wireshark-qt
 pip install ryu --user
 # ryu-manager ryu.app.simple_switch
 # sudo mn --controller remote
