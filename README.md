@@ -21,6 +21,7 @@ sudo pacman -Syu
 sudo pacman -R yaourt
 sudo pacman -S yay
 yay -S google-chrome
+sudo pacman -R palemoon-bin
 sudo pacman -S rofi
 sudo pacman -S python-pip
 yay -S visual-studio-code-bin
@@ -101,3 +102,7 @@ pip install ryu --user
 # ryu-manager ryu.app.simple_switch
 # mn --controller remote
 ```
+
+## TODO
+
+- [ ] Autostart ssh-agent
