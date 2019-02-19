@@ -26,6 +26,7 @@ sudo pacman -S python-pip
 yay -S visual-studio-code-bin
 sudo pacman -S otf-fira-code
 yay -S gitkraken
+sudo pacman -S gvim
 code
 ```
 
@@ -54,7 +55,7 @@ cd i3manjaro-dotfiles
 yes | cp -vrf dotfiles/. ~/
 nitrogen --set-scaled ~/Pictures/wallpaper/martino-pietropoli.jpg --save
 sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.bashrc
-
+sed -i '$a export HISTTIMEFORMAT="%d/%m/%y %T "' ~/.bashrc
 sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.xinitrc
 sudo reboot
 ```
@@ -77,12 +78,11 @@ sudo mkdir -p /usr/local/var/log/openvswitch/
 sudo mkdir -p /usr/local/var/run/openvswitch
 sudo touch /usr/local/var/log/openvswitch/ovs-vswitchd.log
 sudo ovsdb-tool create /usr/local/etc/openvswitch/conf.db vswitchd/vswitch.ovsschema
+sudo reboot
 # sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --private-key=db:Open_vSwitch,SSL,private_key --certificate=db:Open_vSwitch,SSL,certificate --bootstrap-ca-cert=db:Open_vSwitch,SSL,ca_cert --pidfile --detach --log-file
-sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --pidfile --detach --log-file
-# sudo ovs-vsctl --no-wait emer-reset
-# sudo kill `cd /usr/local/var/run/openvswitch && cat ovsdb-server.pid ovs-vswitchd.pid`
-sudo ovs-vsctl --no-wait init
-ovs-vswitchd --pidfile --detach --log-file
+# sudo ovsdb-server --remote=punix:/usr/local/var/run/openvswitch/db.sock --remote=db:Open_vSwitch,Open_vSwitch,manager_options --pidfile --detach --log-file
+# sudo ovs-vsctl --no-wait init
+# ovs-vswitchd --pidfile --detach --log-file
 ```
 
 ## mininet
@@ -99,5 +99,5 @@ pacman -S tcpdump
 pacman -S wireshark-qt
 pip install ryu --user
 # ryu-manager ryu.app.simple_switch
-# sudo mn --controller remote
+# mn --controller remote
 ```
