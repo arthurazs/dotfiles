@@ -28,6 +28,7 @@ yay -S visual-studio-code-bin
 sudo pacman -S otf-fira-code
 yay -S gitkraken
 sudo pacman -S gvim
+sudo pacman -S freeradius
 code
 ```
 
@@ -61,7 +62,9 @@ sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n  
 sudo reboot
 ```
 
-## OpenvSwitch
+## AuthFlow-SG and SCADA-NG
+
+### OpenvSwitch
 
 ```bash
 git clone https://github.com/openvswitch/ovs.git
@@ -86,7 +89,7 @@ sudo reboot
 # ovs-vswitchd --pidfile --detach --log-file
 ```
 
-## mininet
+### mininet
 
 ```bash
 git clone http://github.com/mininet/mininet
@@ -103,6 +106,29 @@ pip install ryu --user
 # mn --controller remote
 ```
 
+### FreeRADIUS
+
+Add users to the top of `sudo vim /etc/raddb/users`:
+
+- scada  Cleartext-Password := "scada"
+- ev1    Cleartext-Password := "ev1"
+- ev2    Cleartext-Password := "ev2"
+- ev3    Cleartext-Password := "ev3"
+- ev4    Cleartext-Password := "ev4"
+- ev5    Cleartext-Password := "ev5"
+- ev6    Cleartext-Password := "ev6"
+- ev7    Cleartext-Password := "ev7"
+- ev8    Cleartext-Password := "ev8"
+- ev9    Cleartext-Password := "ev9"
+- ev10   Cleartext-Password := "ev10"
+
+```bash
+# https://me.m01.eu/blog/2012/05/wpa-2-enterprise-from-scratch-on-a-raspberry-pi/
+sudo radiusd -X
+radtest -x scada scada localhost 0 testing123
+```
+
 ## TODO
 
 - [ ] Autostart ssh-agent
+- [ ] Add hostapd and wpa files
