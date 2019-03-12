@@ -18,16 +18,10 @@ ssh-add ~/.ssh/id_rsa
 
 ```bash
 sudo pacman -Syu
-sudo pacman -R yaourt
-sudo pacman -S yay
-yay -S google-chrome
-sudo pacman -R palemoon-bin
-sudo pacman -S rofi
-sudo pacman -S python-pip
-yay -S visual-studio-code-bin
-sudo pacman -S otf-fira-code
-yay -S gitkraken
-sudo pacman -S gvim
+sudo pacman -R yaourt palemoon-bin
+sudo pacman -S yay rofi python-pip otf-fira-code gvim
+pip install virtualenv --user
+yay -S google-chrome visual-studio-code-bin gitkraken wavebox-bin ttf-ms-fonts
 sudo pacman -S freeradius
 code
 ```
@@ -51,15 +45,20 @@ vim ~/.profile  # export BROWSER=/usr/bin/google-chrome-stable
 ## dotfiles
 
 ```bash
-cd ~/apps/venv
-virtualenv -p python vscode
 cd i3manjaro-dotfiles
 yes | cp -vrf dotfiles/. ~/
 nitrogen --set-scaled ~/Pictures/wallpaper/martino-pietropoli.jpg --save
 sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.bashrc
 sed -i '$a export HISTTIMEFORMAT="%d/%m/%y %T "' ~/.bashrc
 sed -i '$a export PATH="$PATH:~/.local/bin"\nif [ -f ~/.bash_aliases ]; then\n    . ~/.bash_aliases\nfi' ~/.xinitrc
-sudo reboot
+. ~/.bashrc
+cd ~/apps/venv
+virtualenv -p python vscode
+cd ~/apps
+wget https://telegram.org/dl/desktop/linux -O Telegram.tar.xz
+7z x -so Telegram.tar.xz | 7z x -si -ttar
+chmod +x Telegram/Telegram
+reboot
 ```
 
 ## AuthFlow-SG and SCADA-NG
@@ -131,4 +130,6 @@ radtest -x scada scada localhost 0 testing123
 ## TODO
 
 - [ ] Autostart ssh-agent
+- [ ] Autostart wavebox
+- [ ] Autostart telegram
 - [ ] Add hostapd and wpa files
