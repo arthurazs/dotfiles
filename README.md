@@ -58,6 +58,7 @@ cd ~/apps
 wget https://telegram.org/dl/desktop/linux -O Telegram.tar.xz
 7z x -so Telegram.tar.xz | 7z x -si -ttar
 chmod +x Telegram/Telegram
+cd ~/apps && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 reboot
 ```
 
