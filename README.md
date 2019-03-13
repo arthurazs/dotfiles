@@ -130,6 +130,6 @@ radtest -x scada scada localhost 0 testing123
 ## TODO
 
 - [ ] Autostart ssh-agent
-- [ ] Autostart wavebox
-- [ ] Autostart telegram
+- [x] Autostart wavebox
+- [x] Autostart telegram
 - [ ] Add hostapd and wpa files
