@@ -100,6 +100,8 @@ sudo mv a.out /usr/bin/mnexec
 pacman -S net-tools
 pacman -S tcpdump
 pacman -S wireshark-qt
+pacman -S openbsd-netcat
+sudo gpasswd -a arthurazs wireshark
 pip install ryu --user
 # ryu-manager ryu.app.simple_switch
 # mn --controller remote
@@ -127,9 +129,14 @@ sudo radiusd -X
 radtest -x scada scada localhost 0 testing123
 ```
 
+Open the file `/etc/raddb/mods-available/eap` and change the following line:
+
+```
+default_eap_type = peap
+```
+
 ## TODO
 
-- [ ] Autostart ssh-agent
-- [x] Autostart wavebox
-- [x] Autostart telegram
-- [ ] Add hostapd and wpa files
+- [x] Configure hostapd
+- [ ] Downgrade freeradius
+  - [ ] Find out why version 3.0.18 doubles EAP-MSCHAPv2 control load
