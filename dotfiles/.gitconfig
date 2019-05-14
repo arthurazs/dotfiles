@@ -5,3 +5,5 @@
 	default = simple
 [credential]
 	username = arthurazs
+[core]
+	excludesfile = /home/arthurazs/.gitexcludes
