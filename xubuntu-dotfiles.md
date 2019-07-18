@@ -6,7 +6,9 @@ ssh-keygen -t rsa -b 4096 -C "arthurazsoares@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
-sudo apt install tilix rofi python-pip fonts-firacode vim freeradius python3-distutils
+sudo apt install mininet tilix rofi python-pip fonts-firacode vim freeradius python3-distutils
+
+pip install ryu
 ```
 Download and install (`dpkg -i`) [vscode](https://code.visualstudio.com/docs/?dv=linux64_deb) and [gitkraken](https://www.gitkraken.com/download/linux-deb).
 
