@@ -1,0 +1,56 @@
+{
+    "telemetry.enableTelemetry": false,
+    "workbench.statusBar.feedback.visible": false,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 18,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "~/apps/venv/vscode/bin/python",
+    "python.venvPath": "~/apps/venv",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "__pycache__": true
+    },
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[markdown]": {
+        "editor.tabSize": 2
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorCustomizations": {
+
+        "activityBarBadge.background":"#007ACD",
+
+        "activityBar.background": "#23252C",
+        "sideBar.background": "#23252C",
+        "statusBar.background": "#007ACD",
+        "statusBar.foreground": "#ffffff",
+
+        "editor.background": "#1E1E1E",
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules":[
+            {
+                "scope": ["storage.type.c", "meta.function-call.python"],
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            }
+        ]
+    },
+    "editor.matchBrackets": false,
+    "workbench.colorTheme": "One Dark Pro Vivid",
+    "window.zoomLevel": 0
+}
