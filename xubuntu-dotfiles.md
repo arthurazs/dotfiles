@@ -61,4 +61,4 @@ Configure hotkey (Super+F2) in *Keyboard* for `exo-open --launch WebBrowser`.
 
 Configure hotkey (Super+F3) in *Keyboard* for `exo-open --launch FileManager`.
 
-Configure hotkey (<Shift><Super>Q) in *Settings Editor* for `close_window_key`.
+Configure hotkey (\<Shift>\<Super>Q) in *Settings Editor* for `close_window_key`.
