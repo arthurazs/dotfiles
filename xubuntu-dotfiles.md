@@ -6,7 +6,7 @@ ssh-keygen -t rsa -b 4096 -C "arthurazsoares@gmail.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
-sudo apt install mininet tilix rofi python-pip fonts-firacode vim freeradius python3-distutils
+sudo apt install mininet tilix rofi python-pip fonts-firacode vim freeradius python3-distutils wireshark
 
 pip install ryu
 ```
