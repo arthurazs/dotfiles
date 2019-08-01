@@ -19,10 +19,10 @@ ssh-add ~/.ssh/id_rsa
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install mininet tilix rofi python-pip fonts-firacode vim freeradius python3-distutils wireshark git
+sudo apt install mininet tilix rofi python3-pip fonts-firacode vim freeradius python3-distutils wireshark git
 
-pip install ryu
-pip install virtualenv
+pip3 install ryu
+pip3 install virtualenv
 ```
 
 Download and install (`dpkg -i`) [vscode](https://code.visualstudio.com/docs/?dv=linux64_deb) and [gitkraken](https://www.gitkraken.com/download/linux-deb).
@@ -46,6 +46,7 @@ sed -i '$a export HISTTIMEFORMAT="%d/%m/%y %T "\n\nexport PATH="$PATH:~/.local/b
 source ~/.bashrc
 cd ~/apps/venv
 virtualenv -p python3 vscode
+vscode/bin/python -m pip install -U flake8
 sed -i '$a if [ $TILIX_ID ] || [ $VTE_VERSION ]; then\n        source /etc/profile.d/vte.sh\nfi' ~/.bashrc
 sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
 reboot
