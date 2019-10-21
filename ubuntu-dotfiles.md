@@ -29,7 +29,9 @@ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/v
 
 sudo apt update
 sudo apt upgrade
-sudo apt install -y tilix rofi python3-pip fonts-firacode vim python3-distutils wireshark git p7zip-full vlc nemo dconf-editor wavebox ttf-mscorefonts-installer llvm clang curl flat-remix flat-remix-gtk flat-remix-gnome gnome-tweak-tool chrome-gnome-shell code
+sudo apt install -y tilix rofi python3-pip fonts-firacode vim python3-distutils wireshark git p7zip-full vlc nemo dconf-editor wavebox ttf-mscorefonts-installer llvm clang curl code gnome-tweak-tool chrome-gnome-shell
+
+sudo apt install -y flat-remix flat-remix-gtk flat-remix-gnome
 
 code --install-extension aaron-bond.better-comments
 code --install-extension coenraads.bracket-pair-colorizer-2
