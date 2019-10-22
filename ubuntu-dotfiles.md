@@ -29,7 +29,7 @@ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/v
 
 sudo apt update
 sudo apt upgrade
-sudo apt install -y tilix rofi python3-pip fonts-firacode vim python3-distutils wireshark git p7zip-full vlc nemo dconf-editor wavebox ttf-mscorefonts-installer llvm clang curl code gnome-tweak-tool chrome-gnome-shell
+sudo apt install -y tilix rofi python3-pip fonts-firacode vim python3-distutils wireshark git p7zip-full vlc nemo dconf-editor wavebox ttf-mscorefonts-installer llvm clang curl code gnome-tweak-tool chrome-gnome-shell gconf2
 
 sudo apt install -y flat-remix flat-remix-gtk flat-remix-gnome
 
@@ -47,14 +47,14 @@ cargo install bat
 
 wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
 sudo dpkg -i gitkraken-amd64.deb
-sudo apt --fix-broken install -y
+# sudo apt --fix-broken install -y
 ```
 
 ## dotfiles
 
 ```bash
 cd my-dotfiles
-yes | cp -vrf xubuntu-dotfiles/. ~/
+yes | cp -vrf ubuntu-dotfiles/. ~/
 sed -i '$a export HISTTIMEFORMAT="%d/%m/%y %T "\n\nexport PATH="$PATH:~/.local/bin"' ~/.bashrc
 source ~/.bashrc
 cd ~/apps && wget -O - "https://telegram.org/dl/desktop/linux" | 7z x -si -txz -so | 7z x -si -ttar
