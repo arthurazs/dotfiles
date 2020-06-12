@@ -73,4 +73,6 @@ After reboot
 ```bash
 dconf load /org/gnome/ < .config/dconf/gnome.conf
 dconf load /com/gexperts/Tilix/ < .config/dconf/tilix.conf
+dconf write /org/gnome/desktop/background/picture-uri "'file:///$HOME/Pictures/wallpaper/alena-aenami-stay-1k.jpg'"
+dconf write /org/gnome/desktop/screensaver/picture-uri "'file:///$HOME/Pictures/wallpaper/alena-aenami-coldredlight.jpg'"
 ```
