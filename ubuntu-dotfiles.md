@@ -46,9 +46,9 @@ sudo dpkg -i tmp.deb
 # sudo apt --fix-broken install -y
 rm tmp.deb
 
-wget -O tmp.deb https://updates.insomnia.rest/downloads/ubuntu/lastest?app=com.insomnia.app
+wget -O tmp.deb https://updates.insomnia.rest/downloads/ubuntu/latest?app=com.insomnia.app
 sudo dpkg -i tmp.deb
-rm rmp.deb
+rm tmp.deb
 
 for uuid in "Vitals@CoreCoding.com"; do shellversion=$(gnome-shell --version | cut -d' ' -f3); wget -O tmp.zip "https://extensions.gnome.org/download-extension/$uuid.shell-extension.zip?shell_version=$shellversion"; 7z x tmp.zip -o"$HOME/.local/share/gnome-shell/extensions/$uuid"; rm tmp.zip; done
 ```
