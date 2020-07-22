@@ -114,6 +114,7 @@ yes | cp -vrf ubuntu-dotfiles/. $HOME/
 sed -i '$a \\n# new configuration\nexport HISTTIMEFORMAT="%d/%m/%y %T "' $HOME/.profile
 sed -i '$a \\n# tilix configuration\nif [ $TILIX_ID ] || [ $VTE_VERSION ]; then\n  source /etc/profile.d/vte.sh\nfi' $HOME/.bashrc
 sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+sed -i '$a \\n# autocomplete symlink directories\nbind "set mark-symlinked-directories on"' $HOME/.bashrc
 reboot
 ```
 
