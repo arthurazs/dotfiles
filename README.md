@@ -1,7 +1,18 @@
-# dotfiles
+# .files for debian-based distro
 
-Pick one:
+Tested on debian.
 
-- [ubuntu](ubuntu-dotfiles.md)
-- [i3manjaro](i3manjaro-dotfiles.md)
-- [xubuntu](xubuntu-dotfiles.md)
+---
+
+Run `sh install.sh` to install:
+
+- update user to use sudo w/o passwd
+- install nala (apt), git, gcc, python (venv), bat (cat), glow (markdown viewer)
+- neovim (vim) + nvChad + pyright, ruff and mypy
+- fish (bash) + starship
+- ssh config for custom ssh key
+
+Run `apt fetch` to select the best mirrors.
+
+Run `vim` then enter `:MasonInstallAll` to install the dependencies.
+
