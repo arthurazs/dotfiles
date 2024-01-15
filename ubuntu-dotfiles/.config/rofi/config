@@ -1,3 +1,0 @@
-# rofi.run-command: /bin/bash -i -c '{cmd}'
-# rofi.run-list-command: source ~/.alias.sh
-rofi.theme: onedark.rasi
