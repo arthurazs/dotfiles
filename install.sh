@@ -19,7 +19,7 @@ echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable
 sudo apt update
 sudo apt install -y nala git gcc python3-venv fish bat glow npm fzf ripgrep fd-find eza
 
-# neovim + nvchad
+# neovim
 wget https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage -O /tmp/vim
 chmod +x /tmp/vim
 /tmp/./vim --appimage-extract
@@ -30,6 +30,8 @@ mkdir -p ~/.local/share/applications ~/.local/bin ~/.local/share/icons/hicolor/
 mv /tmp/squashfs-root/nvim.desktop ~/.local/share/applications/vim.desktop
 cp -rv /tmp/squashfs-root/usr/share/icons/hicolor/* ~/.local/share/icons/hicolor/
 mv /tmp/vim ~/.local/bin/
+
+# nvchad
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
@@ -53,6 +55,6 @@ cp -vrf .files/apps/* ~/apps/
 cp .files/bash/.bash_aliases ~
 cp .files/fish/config.fish ~/.config/fish/
 cp .files/git/.gitconfig ~
-cp -vrf .files/nvim/* ~/.config/nvim/lua/
+cp -vrf .files/nvim/* ~/.config/nvim/lua/custom
 cp .files/procs/config.toml ~/.config/procs/
 cp .files/ssh/config ~/.ssh/
