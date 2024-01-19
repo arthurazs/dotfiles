@@ -10,9 +10,14 @@ sudo sed -i '$a '$USER' ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
 curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
 echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
 
+# exa
+wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+# sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+
 # req
 sudo apt update
-sudo apt install nala git gcc python3-venv fish bat glow npm -y
+sudo apt install -y nala git gcc python3-venv fish bat glow npm fzf ripgrep fd-find eza
 git config --global user.email "github@zope.me"
 git config --global user.name "Arthur Zopellaro"
 
@@ -21,6 +26,12 @@ echo 'alias apt="sudo nala"' >> ~/.bash_aliases
 echo 'alias cat="batcat"' >> ~/.bash_aliases
 echo 'alias glow="glow -p"' >> ~/.bash_aliases
 echo 'alias apt-snap=~/apps/./clean_snap.sh' >> ~/.bash_aliases
+echo 'alias find="fdfind"' >> ~/.bash_aliases
+echo 'alias ls="exa --icons --group-directories-first"' >> ~/.bash_aliases
+echo 'alias l="ls -a"' >> ~/.bash_aliases
+echo 'alias ll="exa -l --git --icons --color-scale -h -g --group-directories-first"' >> ~/.bash_aliases
+echo 'alias la="ll -a"' >> ~/.bash_aliases
+echo 'alias tree="exa --tree --icons --level 2 --group-directories-first"' >> ~/.bash_aliases
 
 # neovim + nvchad
 cur_dir=$(pwd)
@@ -47,6 +58,12 @@ sed -i '$i\\    alias apt="sudo nala"' ~/.config/fish/config.fish
 sed -i '$i\\    alias cat="batcat"' ~/.config/fish/config.fish
 sed -i '$i\\    alias glow="glow -p"' ~/.config/fish/config.fish
 sed -i '$i\\    alias apt-snap="~/apps/./clean_snap.sh"' ~/.config/fish/config.fish
+sed -i '$i\\    alias find="fdfind"' ~/.config/fish/config.fish
+sed -i '$i\\    alias ls="exa --icons --group-directories-first"' ~/.config/fish/config.fish
+sed -i '$i\\    alias l="ls -a"' ~/.config/fish/config.fish
+sed -i '$i\\    alias ll="exa -l --git --icons --color-scale -h -g --group-directories-first"' ~/.config/fish/config.fish
+sed -i '$i\\    alias la="ll -a"' ~/.config/fish/config.fish
+sed -i '$i\\    alias tree="exa --tree --icons --level 2 --group-directories-first"' ~/.config/fish/config.fish
 curl -sS https://starship.rs/install.sh | sh
 sed -i '$i\\    starship init fish | source' ~/.config/fish/config.fish
 
@@ -54,6 +71,13 @@ sed -i '$i\\    starship init fish | source' ~/.config/fish/config.fish
 wget https://github.com/dalance/procs/releases/download/v0.14.4/procs-v0.14.4-x86_64-linux.zip -O /tmp/procs.zip
 unzip /tmp/procs.zip
 mv procs ~/.local/bin
+
+# zoxide
+curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+echo 'eval "$(~/.local/bin/zoxide init bash)"' >> ~/.bashrc
+echo 'alias cd="z"' >> ~/.bash_aliases
+sed -i '$i\\   zoxide init fish | source' ~/.config/fish/config.fish
+sed -i '$i\\    alias cd="z"' ~/.config/fish/config.fish
 
 # .files
 mkdir -p ~/apps
