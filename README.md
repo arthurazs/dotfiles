@@ -1,19 +1,44 @@
 # .files for debian-based distro
 
-Tested on debian.
+Works on both ubuntu and debian.
+
+**NOTE** you may add your user in the sudoers group with:
+
+```bash
+su -
+apt install sudo
+usermod -a -G sudo <username>
+```
 
 ---
 
-Run `sh install.sh` to install:
+Contains:
 
 - update user to use sudo w/o passwd
 - install nala (apt), git, gcc, python (venv), bat (cat), glow (markdown viewer)
 - neovim (vim) + nvChad + pyright, ruff and mypy
 - fish (bash) + starship
 - ssh config for custom ssh key
-- exa (ls), fdfind (find), zoxide (cd) + fzf, procs (ps), ripgrep (rg)
+- eza (ls), fdfind (find), zoxide (cd) + fzf, procs (ps), ripgrep (rg)
 
-Run `apt fetch` to select the best mirrors.
+## Install
 
-Run `vim` then enter `:MasonInstallAll` to install the dependencies.
+```bash
+sudo apt install -y git
+git clone https://github.com/arthurazs/my-dotfiles
+cd my-dotfiles
+sh install.sh
+```
 
+## Commands to test
+
+- apt fetch
+- fish
+- cat README.md
+- glow README.md
+- vim README.md
+- l, ls, ll, la
+- find -e md
+- cd, cd my
+- procs
+- rg install.sh
