@@ -37,7 +37,7 @@ sh install.sh
 - cat README.md
 - glow README.md
 - vim README.md
-- l, ls, ll, la
+- l, ls, ll, la, tree
 - find -e md
 - cd, cd my
 - procs
