@@ -49,7 +49,7 @@ curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | 
 echo 'eval "$(~/.local/bin/zoxide init bash)"' >> ~/.bashrc
 
 # .files
-mkdir -p ~/apps ~/.config/nvim/lua ~/.ssh ~/.config/procs
+mkdir -p ~/apps ~/.config/nvim/lua/custom ~/.ssh ~/.config/procs
 # chmod +x .files/clean_snap.sh
 cp -vrf .files/apps/* ~/apps/
 cp .files/bash/.bash_aliases ~
