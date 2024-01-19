@@ -11,6 +11,7 @@ Run `sh install.sh` to install:
 - neovim (vim) + nvChad + pyright, ruff and mypy
 - fish (bash) + starship
 - ssh config for custom ssh key
+- procs
 
 Run `apt fetch` to select the best mirrors.
 

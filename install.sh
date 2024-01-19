@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # pre-req
-sudo apt install curl wget fuse gpg
+sudo apt -y install curl wget fuse gpg unzip
 
 # sudo w/o passwd
 sudo sed -i '$a '$USER' ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
@@ -50,12 +50,17 @@ sed -i '$i\\    alias apt-snap="~/apps/./clean_snap.sh"' ~/.config/fish/config.f
 curl -sS https://starship.rs/install.sh | sh
 sed -i '$i\\    starship init fish | source' ~/.config/fish/config.fish
 
+# procs
+wget https://github.com/dalance/procs/releases/download/v0.14.4/procs-v0.14.4-x86_64-linux.zip -O /tmp/procs.zip
+unzip /tmp/procs.zip
+mv procs ~/.local/bin
+
 # .files
 mkdir -p ~/apps
 mkdir -p ~/.config/nvim/lua
 mkdir ~/.ssh
-cp -vrf custom/ ~/.config/nvim/lua/
+cp -vrf nvim/ ~/.config/nvim/lua/
 cp config ~/.ssh/
 chmod +x clean_snap.sh
 cp clean_snap.sh ~/apps/
-
+cp -vrf procs ~/.config/procs/
