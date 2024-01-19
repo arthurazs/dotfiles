@@ -10,7 +10,7 @@ sudo sed -i '$a '$USER' ALL=(ALL) NOPASSWD:ALL' /etc/sudoers
 curl -fsSL https://repo.charm.sh/apt/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/charm.gpg
 echo "deb [signed-by=/etc/apt/keyrings/charm.gpg] https://repo.charm.sh/apt/ * *" | sudo tee /etc/apt/sources.list.d/charm.list
 
-# exa
+# eza
 wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
 echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
 # sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
@@ -26,10 +26,9 @@ chmod +x /tmp/vim
 mv squashfs-root /tmp
 sed -i '/TryExec=nvim/d' /tmp/squashfs-root/nvim.desktop
 sed -i '/Exec=nvim/c Exec=vim' /tmp/squashfs-root/nvim.desktop
-mkdir -p ~/.local/share/applications
+mkdir -p ~/.local/share/applications ~/.local/bin ~/.local/share/icons/hicolor/
 mv /tmp/squashfs-root/nvim.desktop ~/.local/share/applications/vim.desktop
 cp -rv /tmp/squashfs-root/usr/share/icons/hicolor/* ~/.local/share/icons/hicolor/
-mkdir -p ~/.local/bin
 mv /tmp/vim ~/.local/bin/
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
@@ -45,17 +44,15 @@ unzip /tmp/procs.zip -d ~/.local/bin
 
 # zoxide
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+echo 'eval "$(~/.local/bin/zoxide init bash)"' >> ~/.bashrc
 
 # .files
-mkdir -p ~/apps
-mkdir -p ~/.config/nvim/lua
-mkdir ~/.ssh
+mkdir -p ~/apps ~/.config/nvim/lua ~/.ssh ~/.config/procs
 # chmod +x .files/clean_snap.sh
-cp -vrf .files/apps/ ~/apps/
+cp -vrf .files/apps/* ~/apps/
 cp .files/bash/.bash_aliases ~
 cp .files/fish/config.fish ~/.config/fish/
 cp .files/git/.gitconfig ~
-cp -vrf .files/nvim/ ~/.config/nvim/lua/
+cp -vrf .files/nvim/* ~/.config/nvim/lua/
 cp .files/procs/config.toml ~/.config/procs/
 cp .files/ssh/config ~/.ssh/
-
