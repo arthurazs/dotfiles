@@ -5,6 +5,7 @@ if status is-interactive
     alias apt="sudo nala"
     alias cat="batcat"
     alias glow="glow -p"
+    alias apt-snap="~/apps/./clean_snap.sh"
     alias ls="exa --icons --group-directories-first"
     alias l="ls -a"
     alias ll="exa -l --git --icons --color-scale -h -g --group-directories-first"
