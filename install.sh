@@ -75,5 +75,5 @@ tar -xzf /tmp/zellij.tar.gz -C /tmp/
 mv /tmp/zellij ~/.local/bin
 
 # download vim plugins
-vim +MasonInstallAll
+~/.local/bin/vim +MasonInstallAll
 
