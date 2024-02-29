@@ -48,7 +48,7 @@ unzip /tmp/procs.zip -d ~/.local/bin
 
 # zoxide
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-echo 'eval "$(zoxide init --cmd cd bash)"' >> ~/.bashrc
+echo 'eval "$(~/.local/bin/zoxide init --cmd cd bash)"' >> ~/.bashrc
 
 # .files
 mkdir -p ~/apps ~/.config/nvim/lua/custom ~/.ssh ~/.config/procs
