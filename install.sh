@@ -40,7 +40,7 @@ mkdir -p ~/.config/fish
 
 # starship
 curl -sS https://starship.rs/install.sh | sh
-eval "$(starship init bash)"
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 # procs
 wget https://github.com/dalance/procs/releases/download/v0.14.4/procs-v0.14.4-x86_64-linux.zip -O /tmp/procs.zip
