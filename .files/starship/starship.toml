@@ -1,0 +1,21 @@
+[memory_usage]
+disabled = false
+
+[os]
+disabled = false
+
+[status]
+format='[$symbol $status]($style) '
+disabled = false
+
+[sudo]
+disabled = false
+
+[time]
+disabled = false
+
+[git_metrics]
+disabled = false
+
+[shell]
+disabled = false

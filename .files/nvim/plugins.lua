@@ -13,6 +13,8 @@ local plugins = {
         "pyright",
         "mypy",
         "ruff",
+        "gopls",
+        "clangd",
       },
     },
   },
@@ -23,6 +25,15 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+  {
+    "fatih/vim-go",
+    ft = { "go" },
+    cmd = { "GoInstallBinaries" },
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = { "LazyGit" }
+  }
 }
 
 return plugins

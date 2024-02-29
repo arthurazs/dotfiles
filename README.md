@@ -15,13 +15,18 @@ usermod -a -G sudo <username>
 Contains:
 
 - update user to use sudo w/o passwd
-- install nala (apt), git, gcc, python (venv), bat (cat), glow (markdown viewer)
+- install nala (apt), git, gcc, python (venv), bat (cat)
 - neovim (vim) + nvChad + pyright, ruff and mypy
+  - vi (nvim with kickstart config)
 - fish (bash) + starship
 - ssh config for custom ssh key
 - eza (ls), fdfind (find), zoxide (cd) + fzf, procs (ps), ripgrep (rg)
+- lazygit (cli git gui)
+- zellij (terminal workspace)
+- optional
+  - go
 
-## Install
+## Install Default
 
 ```bash
 sudo apt install -y git
@@ -30,15 +35,25 @@ cd my-dotfiles
 sh install.sh
 ```
 
-## Commands to test
+### Commands to test
 
 - apt fetch
 - fish
 - cat README.md
-- glow README.md
 - vim README.md
 - l, ls, ll, la, tree
 - find -e md
 - cd, cd my
 - procs
 - rg install.sh
+- lazygit
+- zellij
+- vi
+
+## Install Go
+
+```bash
+cd my-dotfiles
+sh go.sh
+```
+
