@@ -15,4 +15,6 @@ if status is-interactive
     alias reboot="sudo reboot"
     alias vi="vim -u ~/.config/vi/init.lua"
     alias apt-livepatch='sudo canonical-livepatch refresh'
+    alias 2dark="ln -fs ~/.config/alacritty/themes/one_dark.toml ~/.config/alacritty/themes/active.toml"
+    alias 2light="ln -fs ~/.config/alacritty/themes/github_light.toml ~/.config/alacritty/themes/active.toml"
 end

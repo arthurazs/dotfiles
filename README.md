@@ -30,8 +30,8 @@ Contains:
 
 ```bash
 sudo apt install -y git
-git clone https://github.com/arthurazs/my-dotfiles
-cd my-dotfiles
+git clone https://github.com/arthurazs/dotfiles
+cd dotfiles
 sh install.sh
 ```
 
@@ -53,7 +53,7 @@ sh install.sh
 ## Install Go
 
 ```bash
-cd my-dotfiles
+cd dotfiles
 sh go.sh
 ```
 
