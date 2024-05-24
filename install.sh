@@ -25,6 +25,7 @@ echo "Installing requirements [nala, git, gcc, python3-venv, fish, bat, npm, fzf
 sudo apt-get install -y nala git gcc python3-venv fish bat npm fzf ripgrep fd-find eza >> $LOG_NAME 2>&1
 N_PREFIX=${HOME}/.local n latest
 
+# installing/updating dependencies
 sh update.sh
 
 # zoxide

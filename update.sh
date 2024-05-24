@@ -1,6 +1,8 @@
 #!/bin/bash
 LOG_NAME="/tmp/arthurazs-dotfiles.log"
 
+FONT_REPO="ryanoasis/nerd-fonts"
+FONT_NAME="JetBrainsMono"
 NEOVIM_REPO="neovim/neovim"
 NEOVIM_NAME="nvim"
 PROCS_REPO="dalance/procs"
@@ -18,6 +20,13 @@ latest_version () {
 version_url () {
     echo "https://github.com/$1/releases/download/$2/$3"
 }
+
+# nerd font
+FONT_VERSION=`latest_version $FONT_REPO`
+echo "Installing $FONT_NAME $FONT_VERSION..."
+wget `version_url $FONT_REPO $FONT_VERSION ${FONT_NAME}.zip` >> $LOG_NAME 2>&1
+unzip -j /tmp/$FONT_NAME.zip ${FONT_NAME}NerdFont-Regular.ttf -d ~/.local/share/fonts >> $LOG_NAME 2>&1
+fc-cache -f -r -v >> $LOG_NAME 2>&1
 
 # neovim
 NEOVIM_VERSION=`latest_version $NEOVIM_REPO`
