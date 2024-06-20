@@ -15,6 +15,6 @@ alias 2dark="ln -fs ~/.config/alacritty/themes/one_dark.toml ~/.config/alacritty
 alias 2light="ln -fs ~/.config/alacritty/themes/github_light.toml ~/.config/alacritty/themes/active.toml"
 alias dufiles="du -hsc * | sort -h"
 alias dudirs="du -h --max-depth=1 | sort -h"
-alias cpenv="python3 -m venv .venv"
+alias cpenv="uv venv"
 alias apenv=". .venv/bin/activate"
-
+alias p="ping 8.8.8.8"
