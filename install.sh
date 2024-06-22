@@ -13,8 +13,8 @@ echo "Enabling sudo without password..." | tee -a $LOG_NAME
 sudo sed -i '$a '$USER' ALL=(ALL) NOPASSWD:ALL' /etc/sudoers >> $LOG_NAME 2>&1
 
 # pre-req
-echo "Installing pre-requirements [curl, wget, fuse, gpg and unzip]..." | tee -a $LOG_NAME
-sudo apt-get -y install curl wget fuse gpg unzip >> $LOG_NAME 2>&1
+echo "Installing pre-requirements [curl, wget, libfuse2, gpg and unzip]..." | tee -a $LOG_NAME
+sudo apt-get -y install curl wget libfuse2 gpg unzip >> $LOG_NAME 2>&1
 
 # eza
 echo "Adding eza repository to apt..." | tee -a $LOG_NAME
