@@ -15,7 +15,7 @@ usermod -a -G sudo <username>
 Contains:
 
 - update user to use sudo w/o passwd
-- install nala (apt), git, gcc, python (venv), bat (cat)
+- install nala (apt), git, gcc, python (venv), bat (cat), btop (top)
 - neovim (vim) + nvChad + pyright, ruff and mypy
   - vi (nvim with kickstart config)
 - fish (bash) + starship

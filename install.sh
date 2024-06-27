@@ -25,8 +25,8 @@ sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.lis
 # req
 echo "Updating apt..." | tee -a $LOG_NAME
 sudo apt-get update >> $LOG_NAME 2>&1
-echo "Installing requirements [nala, git, gcc, python3-venv, fish, bat, npm, fzf, ripgrep, fd-find and eza]..." | tee -a $LOG_NAME
-sudo apt-get install -y nala git gcc python3-venv fish bat npm fzf ripgrep fd-find eza >> $LOG_NAME 2>&1
+echo "Installing requirements [nala, git, gcc, python3-venv, fish, bat, npm, fzf, ripgrep, fd-find, eza and btop]..." | tee -a $LOG_NAME
+sudo apt-get install -y nala git gcc python3-venv fish bat npm fzf ripgrep fd-find eza btop >> $LOG_NAME 2>&1
 sudo npm install -g n | tee -a $LOG_NAME
 N_PREFIX=${HOME}/.local n latest
 
