@@ -57,3 +57,9 @@ cd dotfiles
 sh go.sh
 ```
 
+## GNOME Shells 
+
+Recomendations:
+
+- Tactile
+- Vitals
