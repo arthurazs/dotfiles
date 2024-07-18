@@ -1,3 +1,5 @@
+#!/bin/bash
+
 APP_NAME="telegram"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
