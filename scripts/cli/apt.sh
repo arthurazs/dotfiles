@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APPS="bat"
+APPS="eza bat nala fish python3-pip"
 
 APP_NAME="apt.cli"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
