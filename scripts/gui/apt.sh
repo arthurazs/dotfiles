@@ -1,7 +1,7 @@
 
 #!/bin/bash
 
-APPS="alacritty wavebox"
+APPS="alacritty wavebox gimp"
 
 APP_NAME="apt.gui"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
