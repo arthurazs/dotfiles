@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APPS="eza bat nala fish python3-pip btop fd-find ripgrep fzf zoxide"
+APPS="eza bat nala fish python3-pip btop fd-find ripgrep fzf zoxide git curl"
 
 APP_NAME="apt.cli"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")

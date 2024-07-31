@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ./helper.sh
+. ./../helper.sh
 
 APP_NAME="obsidian"
 APP_REPO="obsidianmd/obsidian-releases"
