@@ -20,6 +20,7 @@ Privacy & Security > File History & Wastebasket > Wastebasket & Temporary Files 
 Privacy & Security > Diagnostics > Problem Reporting > Send error reports to Canonical > Never
 System > Region & Language > Your Account > Language > English (United Kingdom)
 System > Region & Language > Your Account > Fromats > Brazil
+System > Date & Time > Time Zone > -03 (Sao Paulo, Brazil)
 Keyboard > View and Customise Shortcuts > Custom Shortcuts > Add Shortcut...
 
  - Name: Alacritty
