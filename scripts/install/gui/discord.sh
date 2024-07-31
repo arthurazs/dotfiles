@@ -13,10 +13,9 @@ APP_BASE_DIR="$HOME/.local"
 echo ">> Downloading $APP_NAME latest version..." | tee -a $LOG_TMP_FILE
 wget $APP_URL -O $APP_TMP_FILE -a $LOG_TMP_FILE
 
-echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
+echo ">> Installing $APP_NAME..." | tee -a $LOG_TMP_FILE
 sudo dpkg -i $APP_TMP_FILE >> $LOG_TMP_FILE
 sudo apt-get install -f >> $LOG_TMP_FILE
 
 echo ">> Removing tmp dir..." | tee -a $LOG_TMP_FILE
 rm -vrf $APP_TMP_DIR >> $LOG_TMP_FILE
-

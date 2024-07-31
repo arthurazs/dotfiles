@@ -26,4 +26,3 @@ sudo apt-get install -f -y >> $LOG_TMP_FILE
 
 echo ">> Removing tmp dir..." | tee -a $LOG_TMP_FILE
 rm -vrf $APP_TMP_DIR >> $LOG_TMP_FILE
-
