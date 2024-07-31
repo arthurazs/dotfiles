@@ -21,3 +21,6 @@ wget `version_url $APP_REPO $APP_VERSION $APP_FILENAME` -O $APP_TMP_FILE -a $LOG
 
 echo ">> Decompressing $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
 tar -xzf $APP_TMP_FILE -v -C $APP_BASE_DIR >> $LOG_TMP_FILE
+
+echo ">> Removing tmp dir..." | tee -a $LOG_TMP_FILE
+rm -vrf $APP_TMP_DIR >> $LOG_TMP_FILE

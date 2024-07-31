@@ -27,3 +27,6 @@ tar -xzf $APP_TMP_FILE -v -C $APP_TMP_DIR >> $LOG_TMP_FILE
 echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
 mkdir -p -v $APP_BASE_DIR >> $LOG_TMP_FILE
 mv -v $APP_TMP_DIR/${APP_NAME} $APP_BASE_DIR >> $LOG_TMP_FILE
+
+echo ">> Removing tmp dir..." | tee -a $LOG_TMP_FILE
+rm -vrf $APP_TMP_DIR >> $LOG_TMP_FILE
