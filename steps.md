@@ -22,7 +22,6 @@ System > Region & Language > Your Account > Language > English (United Kingdom)
 System > Region & Language > Your Account > Fromats > Brazil
 System > Date & Time > Time Zone > -03 (Sao Paulo, Brazil)
 Keyboard > View and Customise Shortcuts > Custom Shortcuts > Add Shortcut...
-
  - Name: Alacritty
  - Command: alacritty
  - Shortcut: Super + Enter
@@ -33,9 +32,14 @@ sh scripts/config/xdg.sh
 
 sh scripts/install/cli/apt.sh
 sh scripts/install/cli/pip.sh
+sh scripts/install/cli/jetbrainsmono.sh
 sh scripts/install/cli/starship.sh
 sh scripts/install/cli/zellij.sh
+sh scripts/install/cli/nvim.sh
+sh scripts/install/cli/lazygit.sh
 
 sh scripts/install/gui/apt.sh
 sh scripts/install/gui/obsidian.sh
 sh scripts/install/gui/veracrypt.sh
+sh scripts/install/gui/brave.sh
+sh scripts/install/gui/telegram.sh
