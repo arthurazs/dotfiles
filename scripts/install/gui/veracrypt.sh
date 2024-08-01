@@ -9,13 +9,13 @@ echo ">> Logging to $LOG_TMP_FILE"
 date >> $LOG_TMP_FILE
 
 APP_TMP_DIR=$(mktemp -p "/tmp" -d "$APP_NAME.XXXXX")
-APP_TMP_FILE="$APP_TMP_DIR/$APP_NAME.deb"
-APP_BASE_DIR="$HOME/.local"
+APP_EXTENSION="deb"
+APP_TMP_FILE="$APP_TMP_DIR/$APP_NAME.$APP_EXTENSION"
 
 echo ">> Searching for $APP_NAME latest version..." | tee -a $LOG_TMP_FILE
 APP_VERSION=`latest_version $APP_REPO`
 APP_VERSION_SHORT=$(echo $APP_VERSION | cut -c11-)
-APP_FILENAME="${APP_NAME}-${APP_VERSION_SHORT}-Ubuntu-24.04-amd64.deb"
+APP_FILENAME="${APP_NAME}-${APP_VERSION_SHORT}-Ubuntu-24.04-amd64.$APP_EXTENSION"
 
 echo ">> Downloading $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
 wget `version_url $APP_REPO $APP_VERSION $APP_FILENAME` -O $APP_TMP_FILE -a $LOG_TMP_FILE
