@@ -21,7 +21,7 @@ echo ">> Downloading $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
 wget `version_url $APP_REPO $APP_VERSION $APP_FILENAME` -O $APP_TMP_FILE -a $LOG_TMP_FILE
 
 echo ">> Decompressing $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
-tar -xf $APP_TMP_FILE -v -C $APP_TMP_DIR >> $LOG_TMP_FILE
+tar -xJf $APP_TMP_FILE -v -C $APP_TMP_DIR >> $LOG_TMP_FILE
 
 echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
 mkdir -p -v $APP_BASE_DIR >> $LOG_TMP_FILE
