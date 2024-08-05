@@ -26,3 +26,6 @@ ssh-keygen -t ed25519 -C "github@zope.me" -f ~/.ssh/id_git
 bash -c 'eval "$(ssh-agent -s)"'
 ssh-add ~/.ssh/id_git
 
+# librewolf apps
+- libRedirect https://addons.mozilla.org/en-US/firefox/addon/libredirect
+- bypass-paywalls-clean https://github.com/bpc-clone/bypass-paywalls-firefox-clean
