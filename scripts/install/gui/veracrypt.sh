@@ -22,6 +22,8 @@ wget `version_url $APP_REPO $APP_VERSION $APP_FILENAME` -O $APP_TMP_FILE -a $LOG
 
 echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a $LOG_TMP_FILE
 sudo dpkg -i $APP_TMP_FILE >> $LOG_TMP_FILE
+
+echo ">> Fixing apt missing dependencies..." | tee -a $LOG_TMP_FILE
 sudo apt-get install -f -y >> $LOG_TMP_FILE
 
 echo ">> Removing tmp dir..." | tee -a $LOG_TMP_FILE
