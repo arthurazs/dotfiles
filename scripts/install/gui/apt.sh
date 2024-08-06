@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APPS="alacritty gimp gnome-browser-connector"
+APPS="alacritty gimp gnome-browser-connector foliate"
 
 APP_NAME="apt.gui"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
