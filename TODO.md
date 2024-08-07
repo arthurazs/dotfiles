@@ -17,6 +17,15 @@
 
 add wireshark (how to install it without the config popup)
 
+# nvim dependencies
+
+- ruff, mypy, pyright
+- luals
+- bashls
+    - shellcheck
+    - shfmt
+- rust-analyzer
+
 # app amor (only for live usb?)
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 /etc/sysctl.conf
