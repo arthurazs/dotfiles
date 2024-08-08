@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_NAME="rustup"  # cargo
+APP_NAME="rustup"  # rust, cargo
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
 date >> "$LOG_TMP_FILE"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_NAME="rust-analyzer"
+APP_NAME="rust-analyzer"  # rust
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
 date >> "$LOG_TMP_FILE"
