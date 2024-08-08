@@ -1,5 +1,11 @@
 # Missing
 
+## Important
+
+- Learn how to install go packages somewhere else
+
+## Others
+
 - procs
 - 2dark/2light for: zellij, alacritty, nvim
 - add mason to nvim?
