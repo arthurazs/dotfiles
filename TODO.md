@@ -19,11 +19,14 @@ add wireshark (how to install it without the config popup)
 
 # nvim dependencies
 
-- ruff, mypy, pyright
+- python
+    - ruff
+    - mypy
+    - pyright
 - luals
-- bashls
+- bash
+    - bashls
     - shellcheck
-    - shfmt
 - rust-analyzer
 
 # app amor (only for live usb?)
