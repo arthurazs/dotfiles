@@ -27,7 +27,8 @@ add wireshark (how to install it without the config popup)
 - bash
     - bashls
     - shellcheck
-- rust-analyzer
+- rust
+    - rust-analyzer
 
 # app amor (only for live usb?)
 sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
