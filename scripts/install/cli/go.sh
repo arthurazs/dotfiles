@@ -31,6 +31,7 @@ mkdir -p -v "$APP_BASE_DIR" >> "$LOG_TMP_FILE"
 mv -v "${APP_TMP_DIR}/${APP_NAME}" "$APP_BASE_DIR" >> "$LOG_TMP_FILE"
 
 echo ">> Configuring $APP_NAME version $APP_VERSION..." | tee -a "$LOG_TMP_FILE"
+mkdir -p -v "${APP_BASE_DIR:?}/go/bin" "${APP_BASE_DIR:?}/gopath/bin" >> "$LOG_TMP_FILE"
 cp -v "../../../config/fish/${APP_CONFIG}" "$HOME/.config/fish/conf.d/${APP_CONFIG}" >> "$LOG_TMP_FILE"
 
 echo ">> Removing tmp dir..." | tee -a "$LOG_TMP_FILE"
