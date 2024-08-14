@@ -11,7 +11,8 @@ date >> "$LOG_TMP_FILE"
 
 APP_TMP_DIR=$(mktemp -p "/tmp" -d "$APP_NAME.XXXXX")
 APP_TMP_FILE="$APP_TMP_DIR/$APP_NAME.$EXTENSION"
-APP_BASE_DIR="$HOME/.local/bin"
+BASE_DIR="$HOME/.local"
+APP_BASE_DIR="$BASE_DIR/$APP_NAME"
 
 echo ">> Searching for $APP_NAME latest version..." | tee -a "$LOG_TMP_FILE"
 APP_VERSION="`latest_version $APP_REPO`"
@@ -25,7 +26,8 @@ tar -xzf "$APP_TMP_FILE" -v -C "$APP_TMP_DIR" >> "$LOG_TMP_FILE"
 
 echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a "$LOG_TMP_FILE"
 mkdir -p -v "$APP_BASE_DIR" >> "$LOG_TMP_FILE"
-mv -v "$APP_TMP_DIR/bin/${APP_NAME}" "$APP_BASE_DIR" >> "$LOG_TMP_FILE"
+mv -v "$APP_TMP_DIR" "$APP_BASE_DIR" >> "$LOG_TMP_FILE"
+ln -vsf "$APP_BASE_DIR/bin/$APP_NAME" "$BASE_DIR/bin/$APP_NAME" >> "$LOG_TMP_FILE"
 
 echo ">> Removing tmp dir..." | tee -a "$LOG_TMP_FILE"
 rm -vrf "$APP_TMP_DIR" >> "$LOG_TMP_FILE"
