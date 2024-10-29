@@ -6,6 +6,7 @@ echo ">> Logging to $LOG_TMP_FILE"
 date >>"$LOG_TMP_FILE"
 
 echo ">> Pre-configuring $APP_NAME..." | tee -a "$LOG_TMP_FILE"
+sudo add-apt-repository ppa:wireshark-dev/stable
 echo "wireshark-common wireshark-common/install-setuid boolean true" | sudo debconf-set-selections
 
 echo ">> Updating apt..." | tee -a "$LOG_TMP_FILE"
