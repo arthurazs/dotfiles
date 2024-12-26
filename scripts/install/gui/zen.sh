@@ -14,7 +14,7 @@ APP_TMP_FILE="$APP_TMP_DIR/$APP_NAME.$APP_EXTENSION"
 
 echo ">> Searching for $APP_NAME latest version..." | tee -a "$LOG_TMP_FILE"
 APP_VERSION=$(latest_version $APP_REPO)
-APP_FILENAME="${APP_NAME}-specific.$APP_EXTENSION"
+APP_FILENAME="${APP_NAME}-x86_64.$APP_EXTENSION"
 
 echo ">> Downloading $APP_NAME version $APP_VERSION..." | tee -a "$LOG_TMP_FILE"
 wget "$(version_url "$APP_REPO" "$APP_VERSION" "$APP_FILENAME")" -O "$APP_TMP_FILE" -a "$LOG_TMP_FILE"
