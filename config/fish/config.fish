@@ -36,4 +36,5 @@ if status is-interactive
 
     set -x CARGO_HOME "$HOME/.local/cargo"
     set -x RUSTUP_HOME "$HOME/.local/rustup"
+    set -x R_LIBS "$HOME/.local/lib/R"
 end
