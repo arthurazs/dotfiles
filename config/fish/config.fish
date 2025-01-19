@@ -1,7 +1,8 @@
 if status is-interactive
     # inits
     starship init fish | source
-    zoxide init --cmd cd fish | source
+    zoxide init fish | source
+    abbr -a cd "z"
 
     # env paths
     set -x CARGO_HOME "$HOME/.local/cargo"
