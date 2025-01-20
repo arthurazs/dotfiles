@@ -21,4 +21,4 @@ disabled = false
 disabled = false
 
 [c]
-commands = [ [ [ 'clang', '--version' ], [ 'cc', '--version' ], [ 'gcc', '--version' ] ] ]
+commands = [ [ 'clang', '--version' ], [ 'cc', '--version' ], [ 'gcc', '--version' ] ]
