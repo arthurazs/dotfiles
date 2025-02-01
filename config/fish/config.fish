@@ -32,6 +32,7 @@ if status is-interactive
 
     # misc
     abbr -a p "ping 8.8.8.8"
+    abbr -a python "python3"
 
     # text editors/readers
     abbr -a vim "nvim"
