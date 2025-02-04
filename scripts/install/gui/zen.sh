@@ -1,5 +1,6 @@
 #!/bin/bash
 
+. ./../clean_exit.sh
 . ./../helper.sh
 
 APP_NAME="zen"
@@ -24,6 +25,7 @@ echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a "$LOG_TMP_FILE"
 	chmod -v +x "$APP_TMP_FILE"
     "$APP_TMP_FILE" --appimage-extract
     mv -v "squashfs-root/" "$APP_TMP_DIR"
+    mkdir -pv "$HOME/.local/share/applications" "$HOME/.local/share/icons" "$HOME/.local/bin"
     mv -v "$APP_TMP_DIR/squashfs-root/zen.desktop" "$HOME/.local/share/applications/"
     mv -v "$APP_TMP_DIR/squashfs-root/zen.png" "$HOME/.local/share/icons/"
 	mv -v "$APP_TMP_FILE" "$HOME/.local/bin/$APP_NAME" 

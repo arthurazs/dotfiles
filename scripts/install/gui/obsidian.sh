@@ -1,5 +1,6 @@
 #!/bin/bash
 
+. ./../clean_exit.sh
 . ./../helper.sh
 
 APP_NAME="obsidian"

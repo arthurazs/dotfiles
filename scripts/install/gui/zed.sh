@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./../clean_exit.sh
+
 LOG_TMP_FILE=$(mktemp -p "/tmp" "zed.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
 date >>"$LOG_TMP_FILE"

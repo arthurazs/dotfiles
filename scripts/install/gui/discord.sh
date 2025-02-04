@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. ./../clean_exit.sh
+
 APP_NAME="discord"
 APP_URL="https://discord.com/api/download?platform=linux&format=deb"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")

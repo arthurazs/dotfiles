@@ -1,6 +1,10 @@
 #!/bin/bash
 
-. ./../helper.sh
+PARENT_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+# shellcheck source=../clean_exit.sh
+. "${PARENT_DIR}/clean_exit.sh"
+# shellcheck source=../helper.sh
+. "${PARENT_DIR}/helper.sh"
 
 APP_NAME="binsider"
 APP_REPO="orhun/binsider"
@@ -26,8 +30,8 @@ tar -xzf "$APP_TMP_FILE" -v -C "$APP_TMP_DIR" >>"$LOG_TMP_FILE"
 
 echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a "$LOG_TMP_FILE"
 {
-	mkdir -p -v "$APP_BASE_DIR"
-	mv -v "$APP_TMP_DIR/${APP_NAME}-${APP_VERSION_SHORT}/${APP_NAME}" "$APP_BASE_DIR"
+    mkdir -p -v "$APP_BASE_DIR"
+    mv -v "$APP_TMP_DIR/${APP_NAME}-${APP_VERSION_SHORT}/${APP_NAME}" "$APP_BASE_DIR"
 } >>"$LOG_TMP_FILE"
 
 echo ">> Removing tmp dir..." | tee -a "$LOG_TMP_FILE"

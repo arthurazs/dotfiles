@@ -1,11 +1,8 @@
 #!/bin/bash
 
-RED="\033[31m"
-RESET="\033[0m"
-set -e # exit on error
-trap '[ "$?" -ne 0 ] && echo "${RED}ERROR${RESET} in $0 check the log" $?' EXIT
-
-. ./../helper.sh
+DIR="$(dirname "$(realpath "$0")")"
+. "${DIR}/../clean_exit.sh"
+. "${DIR}/../helper.sh"
 
 APP_NAME="hexyl"
 APP_REPO="sharkdp/hexyl"

@@ -1,5 +1,11 @@
 #!/bin/bash
 
+RED="\033[31m"
+GREEN="\033[32m"
+RESET="\033[0m"
+set -e # exit on error
+trap 'E_STAT=$? && [ "$E_STAT" -ne 0 ] && echo "${RED}ERROR $E_STAT${RESET} in $0 check the log" || echo "${GREEN}Done${RESET}"' EXIT
+
 . ./../helper.sh
 
 APP_NAME="lua-language-server" # lua_ls

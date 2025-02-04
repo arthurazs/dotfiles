@@ -1,8 +1,8 @@
-# .files for debian-based distro
+# .files for ubuntu
 
-Works on both ubuntu and debian.
+Tested on ubuntu 24.04.1.
 
-**NOTE** you may add your user in the sudoers group with:
+**NOTE** you may need to add your user in the sudoers group with:
 
 ```bash
 su -
@@ -14,52 +14,33 @@ usermod -a -G sudo <username>
 
 Contains:
 
-- update user to use sudo w/o passwd
-- install nala (apt), git, gcc, python (venv), bat (cat), btop (top)
-- neovim (vim) + nvChad + pyright, ruff and mypy
-  - vi (nvim with kickstart config)
-- fish (bash) + starship
-- ssh config for custom ssh key
-- eza (ls), fdfind (find), zoxide (cd) + fzf, procs (ps), ripgrep (rg)
-- lazygit (cli git gui)
-- zellij (terminal workspace)
-- optional
-  - go
+- TODO...
+- Split `apt.sh` into multiple scripts
+- Copy apt-snap
 
 ## Install Default
 
 ```bash
-sudo apt install -y git
-git clone https://github.com/arthurazs/dotfiles
-cd dotfiles
-sh install.sh
+sudo apt install -y curl
+curl https://github.com/arthurazs/dotfiles/blob/feature/add-gui-scripts/init.sh | sh
 ```
 
 ### Commands to test
 
-- apt fetch
+- apt fetch, apt update
 - fish
 - cat README.md
-- vim README.md
 - l, ls, ll, la, tree
-- find -e md
-- cd, cd my
-- procs
+- fdfind -e md
+- cd dotfiles
+- ==TODO== procs
 - rg install.sh
 - lazygit
 - zellij
-- vi
-
-## Install Go
-
-```bash
-cd dotfiles
-sh go.sh
-```
+- vim, vi
 
 ## GNOME Shells 
 
 Recomendations:
 
-- Tactile
 - Vitals
