@@ -1,6 +1,6 @@
 latest_version () {
     repo_name=$1
-    echo $(curl -s "https://api.github.com/repos/$repo_name/releases/latest" | grep -Po '"tag_name": "\K[^"]*')
+    curl -s "https://api.github.com/repos/$repo_name/releases/latest" | grep -Po '"tag_name": "\K[^"]*'
 }
 
 version_url () {
