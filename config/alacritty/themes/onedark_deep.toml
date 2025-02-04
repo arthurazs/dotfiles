@@ -1,0 +1,30 @@
+# Colors (One Dark deep)
+# Adapted from navarasu/onedark.nvim
+
+# Default colors
+[colors.primary]
+background = "#1a212e"
+foreground = "#93a4c3"
+
+# Normal colors
+[colors.normal]
+black =   "#0c0e15"
+red =     "#e55561"
+green =   "#8ebd6b"
+yellow =  "#efbd5d"
+blue =    "#41a7fc"
+magenta = "#bf68d9"
+cyan =    "#1b6a73"
+white =   "#6c7d9c"
+
+# Bright colors
+[colors.bright]
+black =   "#455574"
+red =     "#f65866"
+green =   "#8bcd5b"
+yellow =  "#f2cc81"
+blue =    "#54b0fd"
+magenta = "#c75ae8"
+cyan =    "#34bfd0"
+white =   "#ffffff"
+

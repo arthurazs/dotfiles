@@ -1,0 +1,22 @@
+import = ["~/.config/alacritty/themes/onedark_deep.toml"]
+# import = ["~/.config/alacritty/themes/onedark.toml"]
+# import = ["~/.config/alacritty/themes/active.toml"]
+# alias 2dark="ln -fs ~/.config/alacritty/themes/one_dark.toml ~/.config/alacritty/themes/active.toml"
+# alias 2light="ln -fs ~/.config/alacritty/themes/github_light.toml ~/.config/alacritty/themes/active.toml"
+
+[window]
+dimensions.columns = 100
+dimensions.lines = 25
+decorations = "None"  # Full
+padding = { x = 5, y = 5 }
+dynamic_padding = true
+opacity = 0.98
+# opacity = 0.9
+
+[font]
+normal.family = "JetBrainsMono Nerd Font"
+
+[shell]
+# program = "zellij"
+program = "fish"
+
