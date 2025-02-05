@@ -1,9 +1,15 @@
-#!/bin/bash
+#!/usr/bin/sh
+
+PARENT_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+# shellcheck source=../trap.sh
+. "${PARENT_DIR}/trap.sh"
+# shellcheck source=../log.sh
+. "${PARENT_DIR}/log.sh"
 
 APP_NAME="starship"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
-date >>"$LOG_TMP_FILE"
+log2file date
 
-echo ">> Installing $APP_NAME..." | tee -a "$LOG_TMP_FILE"
-curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin -y >>"$LOG_TMP_FILE"
+echo ">> Installing $APP_NAME..."
+curl -sS https://starship.rs/install.sh | log2file sh -s -- -b ~/.local/bin -y

@@ -1,9 +1,13 @@
-latest_version () {
+# Example usage:
+# github_latest_version "arthurazs/dotfiles"
+# github_version_url "arthurazs/dotfiles" "v1.0.0" "dotfiles.tar.gz"
+
+github_latest_version() {
     repo_name=$1
     curl -s "https://api.github.com/repos/$repo_name/releases/latest" | grep -Po '"tag_name": "\K[^"]*'
 }
 
-version_url () {
+github_version_url() {
     repo_name=$1
     app_version=$2
     filename=$3

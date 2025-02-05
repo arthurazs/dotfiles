@@ -41,7 +41,6 @@ echo
 echo ">> Cloning neovim config [arthurazs/nvim]..."
 git clone --depth 1 --branch feature/improve-config https://github.com/arthurazs/nvim.git "$HOME/.config/nvim"
 
-
 echo
 echo ">> Installing gui apps [gimp, gnome-browser-connector, foliate, discord, obsidian, wireshark]"
 sh "$DF_ROOT/scripts/install/gui/apt.sh"
@@ -55,15 +54,15 @@ echo ">> ${RED}sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0${RE
 printf ">> do you wish to proceed? [y/n]: "
 read -r yn
 case $yn in
-[Yy]*) echo "proceeding..." ;;
+[Yy]*) echo "${GREEN}Proceeding...${RESET}" ;;
 [Nn]*)
-	echo "Done"
-	return 0
-	;;
+    echo "${YELLOW}Leaving...${RESET}"
+    return 0
+    ;;
 *)
-	echo "Invalid answer"
-	return 2
-	;;
+    echo "${RED}Invalid answer${RESET}"
+    return 13
+    ;;
 esac
 # WARNING run only on ubuntu live usb
 # enable lock screen

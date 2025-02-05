@@ -17,6 +17,11 @@ Contains:
 - TODO...
 - Split `apt.sh` into multiple scripts
 - Copy apt-snap
+- Create function for "do you wish to proceed \[y/n\]"
+- Add config copying inside instalation script (see cli/go.sh for example), add to nvim too? (it would download another repo)
+- Remove all `wget` and `#!/bin/bash` and `RED|YELLOW|ETC`
+- Rework `pip.sh` to install only uv from git
+- Review ==gui==
 
 ## Install Default
 
