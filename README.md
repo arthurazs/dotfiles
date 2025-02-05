@@ -71,7 +71,6 @@ Recomendations:
 - [No Search Shortcut Icons](https://zen-browser.app/mods/d7076c31-f6c1-4f28-b2e8-15b95f5a3d6f/)
 - [Now playing indicator](https://zen-browser.app/mods/2e3369c7-e450-46ba-8794-75ccb0de5e48/)
 - [Only Close on Hover](https://zen-browser.app/mods/4596d8f9-f0b7-4aeb-aa92-851222dc1888/)
-- [Smaller Compact Mode](https://zen-browser.app/mods/5941aefd-67b0-453d-9b62-9071a31cbb0d/)
 - [Tab Preview Enhanced](https://zen-browser.app/mods/87196c08-8ca1-4848-b13b-7ea41ee830e7/)
 - [Zen Context Menu](https://zen-browser.app/mods/81fcd6b3-f014-4796-988f-6c3cb3874db8/)
     - Turn every config on but
