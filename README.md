@@ -67,6 +67,7 @@ Recomendations:
 - [HidePlugins](https://zen-browser.app/mods/b430a958-cd66-4edd-b451-c6c7cfb7e160/)
 - [No Gaps](https://zen-browser.app/mods/bfcc400a-4ecb-4752-bfd2-a68f116a2722/)
     - Turn every config on but
+        - Hide top bar in single-tab view (single toolbar)
         - Hide top bar in multi-tab view (single toolbar)
         - Remove top bar in single-tab view (single toolbar)
         - Remove top bar in multi-tab view (single toolbar)
