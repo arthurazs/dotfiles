@@ -51,6 +51,8 @@ Recomendations:
 - [Vitals](https://extensions.gnome.org/extension/1460/vitals/)
 - [Caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 - [Dash to Panel](https://extensions.gnome.org/extension/1160/dash-to-panel/)
+- [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+- [Pop Shell](https://support.system76.com/articles/pop-shell/)
 
 ## Zen
 
