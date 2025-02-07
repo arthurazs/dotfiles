@@ -1,30 +1,33 @@
-#!/bin/bash
+#!/usr/bin/sh
 
-. ./../clean_exit.sh
-. ./../helper.sh
+PARENT_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+# shellcheck source=../trap.sh
+. "${PARENT_DIR}/trap.sh"
+# shellcheck source=../github.sh
+. "${PARENT_DIR}/github.sh"
+# shellcheck source=../log.sh
+. "${PARENT_DIR}/log.sh"
 
 APP_NAME="obsidian"
 APP_REPO="obsidianmd/obsidian-releases"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
-date >>"$LOG_TMP_FILE"
+log2file date
 
 APP_TMP_DIR=$(mktemp -p "/tmp" -d "$APP_NAME.XXXXX")
 APP_TMP_FILE="$APP_TMP_DIR/$APP_NAME.deb"
 
-echo ">> Searching for $APP_NAME latest version..." | tee -a "$LOG_TMP_FILE"
-APP_VERSION=$(latest_version $APP_REPO)
+echo ">> Searching for $APP_NAME latest version..."
+APP_VERSION=$(github_latest_version $APP_REPO)
 APP_VERSION_SHORT=$(echo "$APP_VERSION" | cut -c2-)
 APP_FILENAME="${APP_NAME}_${APP_VERSION_SHORT}_amd64.deb"
 
-echo ">> Downloading $APP_NAME version $APP_VERSION..." | tee -a "$LOG_TMP_FILE"
-wget "$(version_url "$APP_REPO" "$APP_VERSION" "$APP_FILENAME")" -O "$APP_TMP_FILE" -a "$LOG_TMP_FILE"
+echo ">> Downloading $APP_NAME version $APP_VERSION..."
+log2file curl -fsSL "$(github_version_url "$APP_REPO" "$APP_VERSION" "$APP_FILENAME")" -o "$APP_TMP_FILE"
 
-echo ">> Installing $APP_NAME version $APP_VERSION..." | tee -a "$LOG_TMP_FILE"
-{
-	sudo dpkg -i "$APP_TMP_FILE"
-	sudo apt-get install -f -y
-} >>"$LOG_TMP_FILE"
+echo ">> Installing $APP_NAME version $APP_VERSION..."
+log2file sudo dpkg -i "$APP_TMP_FILE"
+log2file sudo apt-get install -f -y
 
-echo ">> Removing tmp dir..." | tee -a "$LOG_TMP_FILE"
-rm -vrf "$APP_TMP_DIR" >>"$LOG_TMP_FILE"
+echo ">> Removing tmp dir..."
+log2file rm -vrf "$APP_TMP_DIR"
