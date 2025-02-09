@@ -24,7 +24,9 @@ APP_VERSION_SHORT=$(echo "$APP_VERSION" | cut -c11-)
 APP_FILENAME="${APP_NAME}-${APP_VERSION_SHORT}-Ubuntu-24.04-amd64.$APP_EXTENSION"
 
 echo ">> Downloading $APP_NAME version $APP_VERSION..."
-log2file curl -fsSL "$(github_version_url "$APP_REPO" "$APP_VERSION" "$APP_FILENAME")" -o "$APP_TMP_FILE"
+log2file curl -fsSL \
+    "$(github_version_url "$APP_REPO" "$APP_VERSION" "$APP_FILENAME")" \
+    -o "$APP_TMP_FILE"
 
 echo ">> Installing dependencies [libccid pcscd]..."
 log2file sudo apt-get install -y libccid pcscd

@@ -23,11 +23,12 @@ APP_VERSION_SHORT=$(echo "$APP_VERSION" | cut -c2-)
 APP_FILENAME="${APP_NAME}_${APP_VERSION_SHORT}_amd64.deb"
 
 echo ">> Downloading $APP_NAME version $APP_VERSION..."
-log2file curl -fsSL "$(github_version_url "$APP_REPO" "$APP_VERSION" "$APP_FILENAME")" -o "$APP_TMP_FILE"
+log2file curl -fsSL \
+    "$(github_version_url "$APP_REPO" "$APP_VERSION" "$APP_FILENAME")" \
+    -o "$APP_TMP_FILE"
 
 echo ">> Installing $APP_NAME version $APP_VERSION..."
 log2file sudo dpkg -i "$APP_TMP_FILE"
-log2file sudo apt-get install -f -y
 
 echo ">> Removing tmp dir..."
 log2file rm -vrf "$APP_TMP_DIR"

@@ -1,23 +1,25 @@
-#!/bin/bash
+#!/usr/bin/sh
+
+PARENT_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+# shellcheck source=../trap.sh
+. "${PARENT_DIR}/trap.sh"
+# shellcheck source=../log.sh
+. "${PARENT_DIR}/log.sh"
 
 APP_NAME="librewolf"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "$APP_NAME.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
-date >>"$LOG_TMP_FILE"
+log2file date
 
-echo ">> Downloading $APP_NAME gpg keys..." | tee -a "$LOG_TMP_FILE"
-wget -q -O- https://deb.librewolf.net/keyring.gpg | sudo gpg --dearmor --yes -o /usr/share/keyrings/librewolf.gpg >>"$LOG_TMP_FILE"
+echo ">> Updating apt..."
+log2file sudo apt-get update
 
-echo ">> Adding $APP_NAME to apt sources list..." | tee -a "$LOG_TMP_FILE"
-sudo bash -c 'echo "Types: deb
-URIs: https://deb.librewolf.net
-Suites: focal
-Components: main
-Architectures: amd64
-Signed-By: /usr/share/keyrings/librewolf.gpg" > /etc/apt/sources.list.d/librewolf.sources'
+echo ">> Installing dependencies [extrepo]..."
+log2file sudo apt-get install -y extrepo
+log2file sudo extrepo enable librewolf
 
-echo ">> Updating apt..." | tee -a "$LOG_TMP_FILE"
-sudo apt-get update >>"$LOG_TMP_FILE"
+echo ">> Updating apt..."
+log2file sudo apt-get update
 
-echo ">> Installing $APP_NAME..." | tee -a "$LOG_TMP_FILE"
-sudo apt-get install -y "$APP_NAME" >>"$LOG_TMP_FILE"
+echo ">> Installing $APP_NAME..."
+log2file sudo apt-get install -y "$APP_NAME"

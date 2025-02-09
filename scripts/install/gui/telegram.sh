@@ -26,3 +26,5 @@ log2file mv -v "$APP_TMP_DIR/Telegram/Telegram" "$APP_BASE_DIR/bin/telegram"
 
 echo ">> Removing tmp dir..."
 log2file rm -vrf "$APP_TMP_DIR"
+
+echo "${TRAP_YELLOW}WARNING${TRAP_RESET} Remember to run the command \`telegram\` in the terminal to create the desktop entry"

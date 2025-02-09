@@ -1,38 +1,44 @@
-#!/bin/bash
+#!/usr/bin/sh
 
-. ./../clean_exit.sh
+PARENT_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
+# shellcheck source=../trap.sh
+. "${PARENT_DIR}/trap.sh"
+# shellcheck source=../log.sh
+. "${PARENT_DIR}/log.sh"
 
 LOG_TMP_FILE=$(mktemp -p "/tmp" "zed.XXXXX.log")
 echo ">> Logging to $LOG_TMP_FILE"
-date >>"$LOG_TMP_FILE"
+log2file date
 
-ZED_TMP_DIR=$(mktemp -p "/tmp" -d "zed.XXXXX")
-ZED_TMP_TAR="$ZED_TMP_DIR/zed.tar.gz"
-ZED_BASE_DIR="$HOME/.local"
-ZED_DIR="$ZED_BASE_DIR/zed.app"
-ZED_APPID="dev.zed.Zed"
+APP_TMP_DIR=$(mktemp -p "/tmp" -d "zed.XXXXX")
+APP_TMP_TAR="$APP_TMP_DIR/zed.tar.gz"
+APP_BASE_DIR="$HOME/.local"
+APP_DIR="$APP_BASE_DIR/zed.app"
+APP_APPID="dev.zed.Zed"
 
-echo ">> Downloading latest zed..." | tee -a "$LOG_TMP_FILE"
-wget "https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz" -O "$ZED_TMP_TAR" -a "$LOG_TMP_FILE"
+echo ">> Downloading latest zed..."
+log2file curl -fsSL \
+    "https://zed.dev/api/releases/stable/latest/zed-linux-x86_64.tar.gz" \
+    -o "$APP_TMP_TAR"
 
-echo ">> Deleting old zed..." | tee -a "$LOG_TMP_FILE"
-rm -vrf "$ZED_DIR" >>"$LOG_TMP_FILE"
+echo ">> Deleting old zed..."
+log2file rm -vrf "$APP_DIR"
 
-echo ">> Extracting tar..." | tee -a "$LOG_TMP_FILE"
-tar -vxzf "$ZED_TMP_TAR" -C "$ZED_BASE_DIR" >>"$LOG_TMP_FILE"
+echo ">> Extracting tar..."
+log2file tar -vxzf "$APP_TMP_TAR" -C "$APP_BASE_DIR"
 
-echo ">> Linking zed to path..." | tee -a "$LOG_TMP_FILE"
-ln -vsf "$ZED_DIR/bin/zed" "$ZED_BASE_DIR/bin/zed" >>"$LOG_TMP_FILE"
+echo ">> Linking zed to path..."
+log2file ln -vsf "$APP_DIR/bin/zed" "$APP_BASE_DIR/bin/zed"
 
-ZED_DESKTOP_FILE_PATH="$ZED_BASE_DIR/share/applications/$ZED_APPID.desktop"
-echo ">> Creating launcher for zed..." | tee -a "$LOG_TMP_FILE"
-cp -v "$ZED_DIR/share/applications/zed.desktop" "$ZED_DESKTOP_FILE_PATH" >>"$LOG_TMP_FILE"
+ZED_DESKTOP_FILE_PATH="$APP_BASE_DIR/share/applications/$APP_APPID.desktop"
+echo ">> Creating launcher for zed..."
+log2file cp -v "$APP_DIR/share/applications/zed.desktop" "$ZED_DESKTOP_FILE_PATH"
 
-echo ">> Fixing launcher values..." | tee -a "$LOG_TMP_FILE"
-{
-	sed -i "s|Icon=zed|Icon=$ZED_DIR/share/icons/hicolor/512x512/apps/zed.png|g" "$ZED_DESKTOP_FILE_PATH"
-	sed -i "s|Exec=zed|Exec=$ZED_DIR/libexec/zed-editor|g" "$ZED_DESKTOP_FILE_PATH"
-} >>"$LOG_TMP_FILE"
+echo ">> Fixing launcher values..."
+log2file sed -i "s|Icon=zed|Icon=$APP_DIR/share/icons/hicolor/512x512/apps/zed.png|g" \
+    "$ZED_DESKTOP_FILE_PATH"
+log2file sed -i "s|Exec=zed|Exec=$APP_DIR/libexec/zed-editor|g" \
+    "$ZED_DESKTOP_FILE_PATH"
 
-echo ">> Removing tmp dir..." | tee -a "$LOG_TMP_FILE"
-rm -vrf "$ZED_TMP_DIR" >>"$LOG_TMP_FILE"
+echo ">> Removing tmp dir..."
+log2file rm -vrf "$APP_TMP_DIR"
