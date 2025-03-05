@@ -48,3 +48,4 @@ ssh-add ~/.ssh/id_git
 # librewolf apps
 - libRedirect https://addons.mozilla.org/en-US/firefox/addon/libredirect
 - bypass-paywalls-clean https://github.com/bpc-clone/bypass-paywalls-firefox-clean
+- bypass alternative https://archive.ph/
