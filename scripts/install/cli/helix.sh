@@ -28,7 +28,7 @@ log2file curl -fsSL "$(github_version_url "$APP_REPO" "$APP_VERSION" "$APP_FILEN
 echo ">> Installing $APP_NAME version $APP_VERSION..."
 log2file chmod +x "$APP_TMP_FILE"
 log2file "$APP_TMP_FILE" --appimage-extract
-log2file mv "squashfs-root" "$APP_TMP_DIR"
+log2file mv "squashfs-root/" "$APP_TMP_DIR"
 log2file mv -v "$APP_TMP_DIR/squashfs-root/Helix.desktop" "$HOME/.local/share/applications/"
 log2file mv -v "$APP_TMP_DIR/squashfs-root/usr/share/icons/hicolor/256x256/apps/helix.png" "$HOME/.local/share/icons/"
 log2file mv -v "$APP_TMP_FILE" "$HOME/.local/bin/hx"

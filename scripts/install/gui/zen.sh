@@ -30,16 +30,17 @@ log2file curl -fsSL \
 echo ">> Installing $APP_NAME version $APP_VERSION..."
 log2file chmod -v +x "$APP_TMP_FILE"
 log2file "$APP_TMP_FILE" --appimage-extract
-log2file mv "squashfs-root" "$APP_TMP_DIR"
+log2file mv "AppDir/" "$APP_TMP_DIR"
+log2file rm squashfs-root
 log2file mkdir -pv \
     "$HOME/.local/share/applications" \
     "$HOME/.local/share/icons" \
     "$HOME/.local/bin"
 log2file mv -v \
-    "$APP_TMP_DIR/squashfs-root/zen.desktop" \
+    "$APP_TMP_DIR/AppDir/zen.desktop" \
     "$HOME/.local/share/applications/"
 log2file mv -v \
-    "$APP_TMP_DIR/squashfs-root/zen.png" \
+    "$APP_TMP_DIR/AppDir/zen.png" \
     "$HOME/.local/share/icons/"
 log2file mv \
     "$APP_TMP_FILE" \
