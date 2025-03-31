@@ -30,7 +30,7 @@ log2file curl -fsSL \
 echo ">> Installing $APP_NAME version $APP_VERSION..."
 log2file chmod -v +x "$APP_TMP_FILE"
 log2file "$APP_TMP_FILE" --appimage-extract
-log2file mv "squashfs-root/" "$APP_TMP_DIR"
+log2file mv "squashfs-root" "$APP_TMP_DIR"
 log2file mkdir -pv \
     "$HOME/.local/share/applications" \
     "$HOME/.local/share/icons" \

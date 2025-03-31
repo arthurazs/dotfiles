@@ -86,6 +86,7 @@ Recomendations:
         - Hide 'Search Keywords' with your preferred search engine
         - Hide 'Duplicate Tab' option
         - Hide 'Tab Unloader Actions'
+        - Hide 'View Page Source' and 'Inspect' options
         - Hide 'Save Link As'
 
 ### Extensions
