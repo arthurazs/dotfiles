@@ -10,6 +10,16 @@ apt install sudo
 usermod -a -G sudo <username>
 ```
 
+You may also want to update your git ssh keys:
+
+```bash
+chmod 400 $HOME/.ssh/your_key      # fix permissions
+chmod 444 $HOME/.ssh/your_key.pub  # fix permissions
+
+eval "$(ssh-agent -s)"             # starts ssh-agent
+ssh-add $HOME/.ssh/your_key        # registers your key
+```
+
 ---
 
 Contains:
