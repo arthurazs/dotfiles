@@ -6,7 +6,7 @@ PARENT_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
 # shellcheck source=../log.sh
 . "${PARENT_DIR}/log.sh"
 
-APPS="eza bat nala fish btop fd-find ripgrep fzf zoxide alacritty libfuse2"
+APPS="bat nala fish btop fd-find ripgrep fzf zoxide alacritty libfuse2"
 
 APP_NAME="apt.cli"
 LOG_TMP_FILE=$(mktemp -p "/tmp" "${APP_NAME}.XXXXX.log")
