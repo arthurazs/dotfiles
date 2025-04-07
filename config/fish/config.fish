@@ -1,4 +1,5 @@
 if status is-interactive
+    # user paths
     set -x fish_user_paths "$HOME/.local/bin" $fish_user_paths
 
     # inits
@@ -22,6 +23,7 @@ if status is-interactive
     # updates manager
     abbr -a apt "sudo nala"
     abbr -a apt-livepatch 'sudo canonical-livepatch refresh'
+    abbr -a cache-keys 'env SHELL=fish keychain --eval --timeout 30 id_rsa | source'
 
     # lists
     abbr -a ls      "eza --icons --group-directories-first"

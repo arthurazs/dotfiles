@@ -11,15 +11,11 @@ DF_SCRIPTS="$(dirname "$(realpath "$0")")/scripts"
 
 echo ">> Updating apt..."
 sudo apt update
-echo ">> Installing dependencies [git, curl]..."
-sudo apt install git curl -y
+echo ">> Installing dependencies [git, curl keychain]..."
+sudo apt install git curl keychain -y
 mkdir -p "${HOME}/.local/bin" "${DF_GIT}"
 echo ">> Downloading scripts..."
 git clone --depth 1 --branch feature/add-gui-scripts https://github.com/arthurazs/dotfiles "${DF_ROOT}"
-
-echo
-echo ">> Copying useful scripts..."
-cp -v "${DF_ROOT}/config/git/cache-git-key" "${HOME}/.local/bin"
 
 echo
 echo ">> Copying configuration files [xdg, alacritty, fish, git, starship]..."
