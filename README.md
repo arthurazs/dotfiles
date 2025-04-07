@@ -27,7 +27,7 @@ Contains:
 
 ```bash
 sudo apt install -y curl
-curl https://github.com/arthurazs/dotfiles/blob/feature/add-gui-scripts/init.sh | sh
+curl https://raw.githubusercontent.com/arthurazs/dotfiles/refs/heads/feature/add-gui-scripts/init.sh | sh
 ```
 
 ### Commands to test
