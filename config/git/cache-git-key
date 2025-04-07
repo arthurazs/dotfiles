@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+# Only start ssh-agent if it's not already running
+if ! ssh-add -l > /dev/null 2>&1; then
+    eval "$(ssh-agent -s)"
+fi
+
+# Only add the key if it's not already added
+if ! ssh-add -l 2>/dev/null | grep -q "$HOME/.ssh/id_rsa"; then
+    ssh-add "$HOME/.ssh/id_rsa"
+fi

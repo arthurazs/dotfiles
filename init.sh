@@ -18,6 +18,10 @@ echo ">> Downloading scripts..."
 git clone --depth 1 --branch feature/add-gui-scripts https://github.com/arthurazs/dotfiles "${DF_ROOT}"
 
 echo
+echo ">> Copying useful scripts..."
+cp -v "${DF_ROOT}/config/git/cache-git-key" "${HOME}/.local/bin"
+
+echo
 echo ">> Copying configuration files [xdg, alacritty, fish, git, starship]..."
 mkdir -p "${HOME}/.config/alacritty" "${HOME}/.config/fish"
 sh "${DF_ROOT}/scripts/config/xdg.sh"
