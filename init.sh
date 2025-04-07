@@ -1,41 +1,40 @@
 #!/usr/bin/sh
 
-RED="\033[31m"
-GREEN="\033[32m"
-YELLOW="\033[33m"
-RESET="\033[0m"
-set -e # exit on error
-trap 'DF_STAT=$? && [ "$DF_STAT" -ne 0 ] && echo "${RED}ERROR $DF_STAT${RESET} in $0 check the log" || echo "${GREEN}Done${RESET}"' EXIT
+DF_SCRIPTS="$(dirname "$(realpath "$0")")/scripts"
+# shellcheck source=scripts/trap.sh
+. "${DF_SCRIPTS}/trap.sh"
+# shellcheck source=scripts/log.sh
+. "${DF_SCRIPTS}/log.sh"
 
-DF_GIT="$HOME/git"
-DF_ROOT="$DF_GIT/dotfiles"
+: "${DF_GIT:=${HOME}/git}"
+: "${DF_ROOT:=${DF_GIT}/dotfiles}"
 
 echo ">> Updating apt..."
 sudo apt update
 echo ">> Installing dependencies [git, curl]..."
 sudo apt install git curl -y
-mkdir -p "$HOME/.local/bin" "$DF_GIT"
+mkdir -p "${HOME}/.local/bin" "${DF_GIT}"
 echo ">> Downloading scripts..."
-git clone --depth 1 --branch feature/add-gui-scripts https://github.com/arthurazs/dotfiles "$DF_ROOT"
+git clone --depth 1 --branch feature/add-gui-scripts https://github.com/arthurazs/dotfiles "${DF_ROOT}"
 
 echo
 echo ">> Copying configuration files [xdg, alacritty, fish, git, starship]..."
-mkdir -p "$HOME/.config/alacritty" "$HOME/.config/fish"
-sh "$DF_ROOT/scripts/config/xdg.sh"
-cp -r "$DF_ROOT/alacritty/*" "$HOME/.config/alacritty"
-cp -r "$DF_ROOT/fish/*" "$HOME/.config/fish"
-cp "$DF_ROOT/git/.gitconfig" "$HOME"
-cp -r "$DF_ROOT/starship/*" "$HOME/.config"
+mkdir -p "${HOME}/.config/alacritty" "${HOME}/.config/fish"
+sh "${DF_ROOT}/scripts/config/xdg.sh"
+cp -r "${DF_ROOT}/config/alacritty/." "${HOME}/.config/alacritty"
+cp -r "${DF_ROOT}/config/fish/." "${HOME}/.config/fish"
+cp "${DF_ROOT}/config/git/.gitconfig" "${HOME}"
+cp -r "${DF_ROOT}/config/starship/." "${HOME}/.config"
 
 echo
 echo ">> Installing cli apps [eza, bat, nala, fish, btop, fd-find, ripgrep, fzf, zoxide, alacritty, libfuse2, helix, jetbrainsmono, lazygit, starship, nvim]..."
 echo ">>   Note: libfuse2 required for helix"
-sh "$DF_ROOT/scripts/install/cli/apt.sh"
-sh "$DF_ROOT/scripts/install/cli/helix.sh"
-sh "$DF_ROOT/scripts/install/cli/jetbrainsmono.sh"
-sh "$DF_ROOT/scripts/install/cli/lazygit.sh"
-sh "$DF_ROOT/scripts/install/cli/starship.sh"
-sh "$DF_ROOT/scripts/install/cli/nvim.sh"
+sh "${DF_ROOT}/scripts/cli/apt.sh"
+sh "${DF_ROOT}/scripts/cli/helix.sh"
+sh "${DF_ROOT}/scripts/cli/jetbrainsmono.sh"
+sh "${DF_ROOT}/scripts/cli/lazygit.sh"
+sh "${DF_ROOT}/scripts/cli/starship.sh"
+sh "${DF_ROOT}/scripts/cli/nvim.sh"
 
 echo
 echo ">> Cloning neovim config [arthurazs/nvim]..."
@@ -43,24 +42,24 @@ git clone --depth 1 --branch feature/improve-config https://github.com/arthurazs
 
 echo
 echo ">> Installing gui apps [gimp, gnome-browser-connector, foliate, discord, obsidian, wireshark]"
-sh "$DF_ROOT/scripts/install/gui/apt.sh"
-sh "$DF_ROOT/scripts/install/gui/discord.sh"
-sh "$DF_ROOT/scripts/install/gui/obsidian.sh"
-sh "$DF_ROOT/scripts/install/gui/wireshark.h"
+sh "${DF_ROOT}/scripts/gui/apt.sh"
+sh "${DF_ROOT}/scripts/gui/discord.sh"
+sh "${DF_ROOT}/scripts/gui/obsidian.sh"
+sh "${DF_ROOT}/scripts/gui/wireshark.h"
 
-echo ">> ${YELLOW}WARNING${RESET} the following commands is supposed to be run on ubuntu live usb only"
-echo ">> ${RED}gsettings set org.gnome.desktop.lockdown disable-lock-screen false${RESET}"
-echo ">> ${RED}sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0${RESET}"
+echo ">> ${TRAP_YELLOW}WARNING${TRAP_RESET} the following commands is supposed to be run on ubuntu live usb only"
+echo ">> ${TRAP_RED}gsettings set org.gnome.desktop.lockdown disable-lock-screen false${TRAP_RESET}"
+echo ">> ${TRAP_RED}sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0${TRAP_RESET}"
 printf ">> do you wish to proceed? [y/n]: "
 read -r yn
 case $yn in
-[Yy]*) echo "${GREEN}Proceeding...${RESET}" ;;
+[Yy]*) echo "${TRAP_GREEN}Proceeding...${TRAP_RESET}" ;;
 [Nn]*)
-    echo "${YELLOW}Leaving...${RESET}"
+    echo "${TRAP_YELLOW}Leaving...${TRAP_RESET}"
     return 0
     ;;
 *)
-    echo "${RED}Invalid answer${RESET}"
+    echo "${TRAP_RED}Invalid answer${TRAP_RESET}"
     return 13
     ;;
 esac
