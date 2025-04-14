@@ -12,4 +12,5 @@ echo ">> Logging to $LOG_TMP_FILE"
 log2file date
 
 echo ">> Installing $APP_NAME..."
+log2file mkdir -p ~/.local/bin
 curl -sS https://starship.rs/install.sh | log2file sh -s -- -b ~/.local/bin -y
