@@ -6,16 +6,15 @@ DF_SCRIPTS="$(dirname "$(realpath "$0")")/scripts"
 # shellcheck source=scripts/log.sh
 . "${DF_SCRIPTS}/log.sh"
 
-: "${DF_GIT:=${HOME}/git}"
-: "${DF_ROOT:=${DF_GIT}/dotfiles}"
+: "${DF_ROOT:=${HOME}/git/dotfiles}"
 
 echo ">> Updating apt..."
 sudo apt update
 echo ">> Installing dependencies [git, curl keychain]..."
 sudo apt install git curl keychain -y
-mkdir -p "${HOME}/.local/bin" "${DF_GIT}"
+mkdir -p "${HOME}/.local/bin"
 echo ">> Downloading scripts..."
-git clone --depth 1 --branch feature/add-gui-scripts https://github.com/arthurazs/dotfiles "${DF_ROOT}"
+git clone --depth 1 --branch feature/add-gui-scripts https://github.com/arthurazs/dotfiles "${DF_ROOT:-${HOME}/git/dotfiles}"
 
 echo
 echo ">> Copying configuration files [xdg, alacritty, fish, git, starship]..."
