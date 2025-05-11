@@ -1,43 +1,41 @@
 # files for ubuntu
 
-Tested on ubuntu 24.04.1.
-
-**NOTE** you may need to add your user in the sudoers group with:
-
-```bash
-su -
-apt install sudo
-usermod -a -G sudo <username>
-```
-
-You may also want to update your git ssh keys:
-
-```bash
-chmod 400 $HOME/.ssh/your_key      # fix permissions
-chmod 444 $HOME/.ssh/your_key.pub  # fix permissions
-
-eval "$(ssh-agent -s)"             # starts ssh-agent
-ssh-add $HOME/.ssh/your_key        # registers your key
-```
-
----
+Tested on ubuntu 25.04.
 
 Contains:
 
 - TODO...
-- Split `apt.sh` into multiple scripts
+- [ ] add install script for eza
 - Copy apt-snap
-- Create function for "do you wish to proceed \[y/n\]"
 - Add config copying inside instalation script (see cli/go.sh for example), add to nvim too? (it would download another repo)
 - Remove all `wget` and `#!/bin/bash` and `RED|YELLOW|ETC`
 - Rework `pip.sh` to install only uv from git
 - Review ==gui==
 
-## Install Default
+### Live Ubuntu
+
+Commands to run:
+
+**Always**
 
 ```bash
-sudo apt install -y curl
-curl https://raw.githubusercontent.com/arthurazs/dotfiles/refs/heads/feature/add-gui-scripts/init.sh | sh
+dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed false && dconf write /org/gnome/shell/extensions/dash-to-dock/intellihide true
+```
+
+**Once**
+
+```bash
+gsettings set org.gnome.desktop.lockdown disable-lock-screen false
+echo 'kernel.apparmor_restrict_unprivileged_userns = 0' | sudo tee /etc/sysctl.d/20-apparmor-donotrestrict.conf
+sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
+```
+
+## Install Default
+
+The following will install this repo on `$HOME/git/dotfiles`. You may change that by adding `DF_ROOT=/path/to/save` before the `curl` command.
+
+```bash
+sudo apt install -y curl && curl https://raw.githubusercontent.com/arthurazs/dotfiles/refs/heads/feature/add-gui-scripts/init.sh | sh
 ```
 
 ### Commands to test
@@ -69,35 +67,24 @@ Recomendations:
 
 ### Mods
 
-- [Better Active Tab](https://zen-browser.app/mods/d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe)
-- [Better Find Bar](https://zen-browser.app/mods/a6335949-4465-4b71-926c-4a52d34bc9c0)
-    - Turn every config off
-- [Better Unloaded Tabs](https://zen-browser.app/mods/f7c71d9a-bce2-420f-ae44-a64bd92975ab)
-- [Floating Status Bar](https://zen-browser.app/mods/906c6915-5677-48ff-9bfc-096a02a72379)
-- [Hide Extension Name](https://zen-browser.app/mods/cb15abdb-0514-4e09-8ce5-722cf1f4a20f)
-- [HidePlugins](https://zen-browser.app/mods/b430a958-cd66-4edd-b451-c6c7cfb7e160)
-- [No Gaps](https://zen-browser.app/mods/bfcc400a-4ecb-4752-bfd2-a68f116a2722)
-    - Turn every config on but
-        - Hide top bar in single-tab view (single toolbar)
-        - Hide top bar in multi-tab view (single toolbar)
-        - Remove top bar in single-tab view (single toolbar)
-        - Remove top bar in multi-tab view (single toolbar)
-- [No Search Shortcut Icons](https://zen-browser.app/mods/d7076c31-f6c1-4f28-b2e8-15b95f5a3d6f)
-- [Now playing indicator](https://zen-browser.app/mods/2e3369c7-e450-46ba-8794-75ccb0de5e48)
-- [Only Close on Hover](https://zen-browser.app/mods/4596d8f9-f0b7-4aeb-aa92-851222dc1888)
-- [Tab Preview Enhanced](https://zen-browser.app/mods/87196c08-8ca1-4848-b13b-7ea41ee830e7)
-- [Zen Context Menu](https://zen-browser.app/mods/81fcd6b3-f014-4796-988f-6c3cb3874db8)
-    - Turn every config on but
-        - Hide all separators
-        - Hide all icons
-        - Only use 'Copy Link Without Site Tracking'
-        - Hide 'Mute Tab' option
-        - Hide 'New Tab' option
-        - Hide 'Search Keywords' with your preferred search engine
-        - Hide 'Duplicate Tab' option
-        - Hide 'Tab Unloader Actions'
-        - Hide 'View Page Source' and 'Inspect' options
-        - Hide 'Save Link As'
+Import config/zen/zen-themes-export.json.
+- Better Find Bar
+    - Check: Transparent Background
+    - Vertical position: Top
+- Zen Context Menu. Uncheck:
+    - Hide all separators
+    - Hide all icons
+    - \[Tab\] Hide 'Mute Tab' option
+    - \[Tab\] Hide 'New Tab' option
+    - \[Text\] \[Link\] Hide Firefox's 'Translate Selection/Link' options
+    - \[Text\] Hide 'Check Spelling' and 'Change Text/Page Direction' options while typing in text fields
+    - \[Page\] \[Text\] Hide 'Select All Text' option
+    - \[Tab\] Hide 'Reload Tab' option
+    - \[Tab\] Hide 'Duplicate Tab' option
+    - \[Tab\] Hide 'Tab Unloader Actions'
+    - \[Text\] \[Page\] Hide 'View Page Source' and 'Inspect' options
+    - \[Page\] Hide 'Take Screenshot' option
+    - \[Image\] Hide 'This Frame' options
 
 ### Extensions
 
