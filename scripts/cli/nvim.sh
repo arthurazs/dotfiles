@@ -31,6 +31,7 @@ echo ">> Decompressing $APP_NAME version $APP_VERSION..."
 log2file tar -xzf "$APP_TMP_FILE" -C "$APP_TMP_DIR"
 log2file rm -rf "$APP_BASE_DIR"
 log2file mv "$APP_TMP_DIR/nvim-linux-x86_64" "$APP_BASE_DIR"
+log2file mkdir -p "$BASE_DIR/bin"
 log2file ln -vsf "$APP_BASE_DIR/bin/$APP_NAME" "$BASE_DIR/bin/$APP_NAME"
 
 echo ">> Removing tmp dir..."
