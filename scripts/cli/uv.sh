@@ -35,6 +35,7 @@ log2file tar -xzf "$APP_TMP_FILE" -v -C "$APP_TMP_DIR"
 echo ">> Installing $APP_NAME version $APP_VERSION..."
 log2file mkdir -p -v "$APP_BASE_DIR"
 log2file mv -v "$APP_TMP_DIR/${APP_NAME}-${APP_ARCH}/${APP_NAME}" "$APP_BASE_DIR"
+log2file mv -v "$APP_TMP_DIR/${APP_NAME}-${APP_ARCH}/${APP_NAME}x" "$APP_BASE_DIR"
 
 echo ">> Removing tmp dir..."
 log2file rm -vrf "$APP_TMP_DIR"
