@@ -34,4 +34,7 @@ log2file sudo apt-get install "${APP_NAME}" -y
 
 echo ">> Configuring ${APP_NAME}..."
 log2file mkdir -pv "${HOME}/.local/npm"
-log2file npm config set prefix "${HOME}/.local/npm"
+log2file sudo npm config --global set prefix "$(HOME)/.local/npm"
+log2file npm install -g n
+log2file N_PREFIX="$(HOME)/.local" "$(HOME)/.local/npm/bin/n" latest
+
