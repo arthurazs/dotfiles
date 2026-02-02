@@ -16,7 +16,7 @@ APP_TMP_TAR="$APP_TMP_DIR/$APP_NAME.tar.xz"
 APP_BASE_DIR="$HOME/.local"
 
 echo ">> Downloading latest $APP_NAME..."
-log2file curl -fsSL "https://telegram.org/dl/desktop/linux" -o "$APP_TMP_TAR"
+log2file curl -fSL "https://telegram.org/dl/desktop/linux" -o "$APP_TMP_TAR"
 
 echo ">> Extracting tar..."
 log2file tar -vxJf "$APP_TMP_TAR" -C "$APP_TMP_DIR"
