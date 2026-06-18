@@ -27,5 +27,4 @@ themes {
     }
 }
 
-theme "one-light"
-// theme "one-dark"
+theme "one-dark"
