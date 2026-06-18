@@ -1,0 +1,31 @@
+themes {
+    one-dark {
+        fg "#abb2bf"
+        bg "#282c34"
+        black "#1e222a"
+        red "#e06c75"
+        green "#98c379"
+        yellow "#e5c07b"
+        blue "#61afef"
+        magenta "#c678dd"
+        cyan "#56b6c2"
+        white "#abb2bf"
+        orange "#d19a66"
+    }
+    one-light {
+        fg "#383a42"
+        bg "#fafafa"
+        black "#f0f0f1"
+        red "#e45649"
+        green "#50a14f"
+        yellow "#c18401"
+        blue "#4078f2"
+        magenta "#a626a4"
+        cyan "#0184bc"
+        white "#383a42"
+        orange "#986801"
+    }
+}
+
+theme "one-light"
+// theme "one-dark"
