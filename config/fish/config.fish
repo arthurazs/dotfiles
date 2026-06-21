@@ -21,7 +21,7 @@ if status is-interactive
     set fish_cursor_external line           # Set the external cursor to a line.
 
     # updates manager
-    abbr -a apt "sudo nala"
+    abbr -a apt "sudo apt"
     abbr -a apt-livepatch 'sudo canonical-livepatch refresh'
     abbr -a cache-keys 'env SHELL=fish keychain --eval --timeout 30 id_rsa | source'
 
