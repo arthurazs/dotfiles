@@ -1,4 +1,6 @@
 if status is-interactive
+    umask 077
+
     # user paths
     set -x fish_user_paths "$HOME/.local/bin" $fish_user_paths
 
@@ -12,6 +14,7 @@ if status is-interactive
     set -x RUSTUP_HOME "$HOME/.local/rustup"
     set -x R_LIBS "$HOME/.local/lib/R"
 
+    fish_vi_key_bindings
     # Emulates vim's cursor shape behavior
     set fish_vi_force_cursor true           # Set the cursor config to custom
     set fish_cursor_default block           # Set the normal and visual mode cursors to a block
@@ -23,7 +26,6 @@ if status is-interactive
     # updates manager
     abbr -a apt "sudo apt"
     abbr -a apt-livepatch 'sudo canonical-livepatch refresh'
-    abbr -a cache-keys 'env SHELL=fish keychain --eval --timeout 30 id_rsa | source'
 
     # lists
     abbr -a ls      "eza --icons --group-directories-first"
@@ -44,8 +46,6 @@ if status is-interactive
     abbr -a cat "batcat"
 
     # python env
-    abbr -a cpenv "uv venv .venv"
     abbr -a apenv "source .venv/bin/activate.fish"
-    abbr -a ipenv "uv pip install -e .[dev]"
     abbr -a dpenv "deactivate"
 end

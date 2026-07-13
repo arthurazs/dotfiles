@@ -1,0 +1,4 @@
+# fish
+config/fish/conf.d/secrets.fish
+config/fish/fish_variables
+config/fish/completions/*.fish

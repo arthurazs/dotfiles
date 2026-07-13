@@ -1,1 +1,1 @@
-source "$HOME/.local/cargo/env.fish"
+# source "$HOME/.local/cargo/env.fish"
