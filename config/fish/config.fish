@@ -45,7 +45,8 @@ if status is-interactive
     abbr -a vi  "nvim --clean"
     abbr -a cat "batcat"
 
-    # python env
+    # env
+    abbr -a nd "nix develop"
     abbr -a apenv "source .venv/bin/activate.fish"
     abbr -a dpenv "deactivate"
 end
