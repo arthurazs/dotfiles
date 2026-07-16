@@ -1,7 +1,9 @@
 .PHONY: toggle
 
-KITTY_CONF := $(HOME)/.config/kitty/kitty.conf
-ZELLIJ_CONF := $(HOME)/.config/zellij/config.kdl
+CONFIG_DIR := $(HOME)/.config
+
+KITTY_CONF := $(CONFIG_DIR)/kitty/kitty.conf
+ZELLIJ_CONF := $(CONFIG_DIR)/zellij/config.kdl
 
 toggle:
 	@if tail -n 1 $(KITTY_CONF) | grep -q 'light'; then \
