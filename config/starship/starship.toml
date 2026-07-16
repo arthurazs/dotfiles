@@ -19,6 +19,7 @@ disabled = false
 
 [shell]
 disabled = false
+style = "bold blue"
 
 [c]
 commands = [ [ 'clang', '--version' ], [ 'cc', '--version' ], [ 'gcc', '--version' ] ]
