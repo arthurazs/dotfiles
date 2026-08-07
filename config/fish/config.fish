@@ -49,4 +49,9 @@ if status is-interactive
     abbr -a nd "nix develop"
     abbr -a apenv "source .venv/bin/activate.fish"
     abbr -a dpenv "deactivate"
+
+    # tailscale
+    abbr -a tsu "sudo tailscale up"
+    abbr -a tsd "sudo tailscale down"
+    abbr -a tss "tailscale status"
 end
