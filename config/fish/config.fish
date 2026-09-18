@@ -54,4 +54,7 @@ if status is-interactive
     abbr -a tsu "sudo tailscale up"
     abbr -a tsd "sudo tailscale down"
     abbr -a tss "tailscale status"
+
+    # github
+    abbr -a oprm -- 'gh pr list --state open --json number,title,author,createdAt,updatedAt,additions,deletions,changedFiles,reviewDecision,labels --limit 200 | jq -r \'(["number","title","author","created_at","days_open","hours_open"] | @csv), (.[] | [.number, .title, .author.login, .createdAt, ((now - (.createdAt|fromdateiso8601))/86400|floor), ((now - (.createdAt|fromdateiso8601))/3600|floor)] | @csv)\' > "open_prs_$(date +%Y-%m-%d).csv"'
 end
